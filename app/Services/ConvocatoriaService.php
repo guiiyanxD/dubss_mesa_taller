@@ -7,6 +7,7 @@ use App\Models\Beca;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Collection;
 /**
  * Servicio para gestión de Convocatorias
  *
@@ -32,6 +33,28 @@ class ConvocatoriaService
             return [
                 'id' => $beca->id,
                 'nombre' => $beca->nombre,
+            ];
+        });
+    }
+    public function obtenerConvocatoriasActivasConBecas(): Collection
+    {
+        $convocatorias = Convocatoria::where('estado', 'ACTIVA')
+        ->with(['becas' => function ($query) {
+            $query->select('id', 'nombre', 'id_convocatoria');
+        }])
+        ->select('id', 'nombre')
+        ->get();
+
+        return $convocatorias->map(function ($convocatoria) {
+            return [
+                'id' => $convocatoria->id,
+                'nombre' => $convocatoria->nombre,
+                'becas' => $convocatoria->becas->map(function ($beca) {
+                    return [
+                        'id' => $beca->id,
+                        'nombre' => $beca->nombre,
+                    ];
+                }),
             ];
         });
     }

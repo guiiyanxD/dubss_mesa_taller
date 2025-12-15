@@ -27,28 +27,21 @@ class ConvocatoriaController extends Controller
         ]);
     }
 
-    /**
-     * Endpoint para obtener las becas de una convocatoria por AJAX.
-     * @param int $id ID de la convocatoria
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function getBecas(int $id)
+
+    public function getConvocatoriasActivas(): \Illuminate\Http\JsonResponse
     {
         try {
-            $becas = $this->convocatoriaService->getBecasByConvocatoria($id);
-
+            $convocatorias = $this->convocatoriaService->obtenerConvocatoriasActivasConBecas();
 
             return response()->json([
                 'success' => true,
-                'becas' => $becas,
+                'convocatorias' => $convocatorias,
             ]);
         } catch (\Exception $e) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Error al obtener becas: ' . $e->getMessage()
-            ], 500);
+            Throw new \RuntimeException('Error al obtener las convocatorias activas: ' . $e->getMessage());
         }
     }
+
 
     /**
      * GET /admin/convocatorias/crear

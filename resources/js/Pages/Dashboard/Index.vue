@@ -11,9 +11,7 @@ const hasRole = (roles) => {
     const requiredRoles = Array.isArray(roles) ? roles : [roles];
 
     if (props.auth.user && props.auth.user.roles) {
-        return props.auth.user.roles.some(
-            requiredRoles.includes(userRole),
-        );
+        return props.auth.user.roles.some(requiredRoles.includes(userRole));
     }
     return false;
 };
@@ -191,14 +189,25 @@ const getColorClass = (index) => {
                                     atajo.icon
                                 }}</span>
                                 <div>
-                                    <h4 class="text-lg font-bold">{{ atajo.title }}</h4>
-                                    <p class="text-sm mt-1 opacity-80">{{ atajo.description }}</p>
+                                    <h4 class="text-lg font-bold">
+                                        {{ atajo.title }}
+                                    </h4>
+                                    <p class="mt-1 text-sm opacity-80">
+                                        {{ atajo.description }}
+                                    </p>
                                 </div>
                             </div>
                         </a>
 
-                        <div v-if="atajosAMostrar.length === 0" class="lg:col-span-4 text-center py-10 text-gray-500">
-                            <p>No tienes accesos rápidos configurados. Tu perfil solo te permite navegar por el menú principal.</p>
+                        <div
+                            v-if="atajosAMostrar.length === 0"
+                            class="py-10 text-center text-gray-500 lg:col-span-4"
+                        >
+                            <p>
+                                No tienes accesos rápidos configurados. Tu
+                                perfil solo te permite navegar por el menú
+                                principal.
+                            </p>
                         </div>
                     </div>
                 </div>

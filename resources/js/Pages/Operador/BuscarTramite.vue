@@ -25,7 +25,7 @@ const buscarTramite = () => {
             onFinish: () => {
                 buscando.value = false;
             },
-        }
+        },
     );
 };
 </script>
@@ -34,15 +34,16 @@ const buscarTramite = () => {
     <Head title="Buscar Trámite" />
 
     <AuthenticatedLayout>
-        <div class="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-
+        <div
+            class="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100"
+        >
+            <div class="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
                 <!-- Header -->
-                <div class="text-center mb-12">
-                    <div class="inline-block p-4 bg-blue-100 rounded-full mb-4">
+                <div class="mb-12 text-center">
+                    <div class="mb-4 inline-block rounded-full bg-blue-100 p-4">
                         <span class="text-6xl">🔍</span>
                     </div>
-                    <h1 class="text-4xl font-bold text-slate-900 mb-2">
+                    <h1 class="mb-2 text-4xl font-bold text-slate-900">
                         Buscar Trámite
                     </h1>
                     <p class="text-lg text-slate-600">
@@ -51,10 +52,13 @@ const buscarTramite = () => {
                 </div>
 
                 <!-- Formulario de búsqueda -->
-                <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8">
+                <div class="mb-8 rounded-2xl bg-white p-8 shadow-2xl">
                     <form @submit.prevent="buscarTramite" class="space-y-6">
                         <div>
-                            <label for="ci" class="block text-sm font-bold text-slate-900 mb-2">
+                            <label
+                                for="ci"
+                                class="mb-2 block text-sm font-bold text-slate-900"
+                            >
                                 Cédula de Identidad (CI)
                             </label>
                             <input
@@ -62,7 +66,7 @@ const buscarTramite = () => {
                                 v-model="ciInput"
                                 type="text"
                                 placeholder="Ej: 1234567"
-                                class="w-full px-4 py-4 text-lg border-2 border-slate-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-all"
+                                class="w-full rounded-xl border-2 border-slate-200 px-4 py-4 text-lg transition-all focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
                                 :disabled="buscando"
                                 autofocus
                             />
@@ -71,16 +75,38 @@ const buscarTramite = () => {
                         <button
                             type="submit"
                             :disabled="!ciInput.trim() || buscando"
-                            class="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-4 px-6 rounded-xl disabled:opacity-50 disabled:cursor-not-allowed transition-all transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
+                            class="w-full transform rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 px-6 py-4 font-bold text-white shadow-lg transition-all hover:scale-105 hover:from-blue-600 hover:to-blue-700 hover:shadow-xl active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
                         >
-                            <span v-if="!buscando" class="flex items-center justify-center gap-2">
+                            <span
+                                v-if="!buscando"
+                                class="flex items-center justify-center gap-2"
+                            >
                                 <span>🔍</span>
                                 <span>Buscar Trámite</span>
                             </span>
-                            <span v-else class="flex items-center justify-center gap-2">
-                                <svg class="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            <span
+                                v-else
+                                class="flex items-center justify-center gap-2"
+                            >
+                                <svg
+                                    class="h-5 w-5 animate-spin"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <circle
+                                        class="opacity-25"
+                                        cx="12"
+                                        cy="12"
+                                        r="10"
+                                        stroke="currentColor"
+                                        stroke-width="4"
+                                    ></circle>
+                                    <path
+                                        class="opacity-75"
+                                        fill="currentColor"
+                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                                    ></path>
                                 </svg>
                                 <span>Buscando...</span>
                             </span>
@@ -90,12 +116,12 @@ const buscarTramite = () => {
                     <!-- Mensaje de error -->
                     <div
                         v-if="error"
-                        class="mt-6 bg-red-50 border-2 border-red-200 rounded-xl p-4"
+                        class="mt-6 rounded-xl border-2 border-red-200 bg-red-50 p-4"
                     >
                         <div class="flex items-start gap-3">
                             <span class="text-2xl">⚠️</span>
                             <div>
-                                <h3 class="font-bold text-red-900 mb-1">
+                                <h3 class="mb-1 font-bold text-red-900">
                                     No se encontró el trámite
                                 </h3>
                                 <p class="text-sm text-red-700">
@@ -107,8 +133,12 @@ const buscarTramite = () => {
                 </div>
 
                 <!-- Consejos -->
-                <div class="bg-blue-50 border-2 border-blue-200 rounded-2xl p-6">
-                    <h3 class="font-bold text-blue-900 mb-3 flex items-center gap-2">
+                <div
+                    class="rounded-2xl border-2 border-blue-200 bg-blue-50 p-6"
+                >
+                    <h3
+                        class="mb-3 flex items-center gap-2 font-bold text-blue-900"
+                    >
                         <span>💡</span>
                         <span>Consejos de búsqueda</span>
                     </h3>
@@ -119,7 +149,10 @@ const buscarTramite = () => {
                         </li>
                         <li class="flex items-start gap-2">
                             <span class="text-blue-500">•</span>
-                            <span>El CI debe corresponder al estudiante que presentó la documentación</span>
+                            <span
+                                >El CI debe corresponder al estudiante que
+                                presentó la documentación</span
+                            >
                         </li>
                         <li class="flex items-start gap-2">
                             <span class="text-blue-500">•</span>
@@ -127,7 +160,6 @@ const buscarTramite = () => {
                         </li>
                     </ul>
                 </div>
-
             </div>
         </div>
     </AuthenticatedLayout>

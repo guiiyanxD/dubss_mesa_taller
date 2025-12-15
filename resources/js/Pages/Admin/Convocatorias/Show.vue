@@ -9,17 +9,29 @@ const props = defineProps({
 
 const activar = () => {
     if (confirm('¿Activar esta convocatoria?')) {
-        router.post(route('admin.convocatorias.activar', props.convocatoria.id), {}, {
-            preserveScroll: true,
-        });
+        router.post(
+            route('admin.convocatorias.activar', props.convocatoria.id),
+            {},
+            {
+                preserveScroll: true,
+            },
+        );
     }
 };
 
 const finalizar = () => {
-    if (confirm('¿Finalizar esta convocatoria? Esta acción no se puede revertir.')) {
-        router.post(route('admin.convocatorias.finalizar', props.convocatoria.id), {}, {
-            preserveScroll: true,
-        });
+    if (
+        confirm(
+            '¿Finalizar esta convocatoria? Esta acción no se puede revertir.',
+        )
+    ) {
+        router.post(
+            route('admin.convocatorias.finalizar', props.convocatoria.id),
+            {},
+            {
+                preserveScroll: true,
+            },
+        );
     }
 };
 </script>
@@ -27,38 +39,45 @@ const finalizar = () => {
 <template>
     <Head :title="convocatoria.nombre" />
 
-    <div class="p-6 max-w-7xl mx-auto">
+    <div class="mx-auto max-w-7xl p-6">
         <!-- Header -->
         <div class="mb-6">
             <a
                 :href="route('admin.convocatorias.index')"
-                class="text-sm text-blue-600 hover:underline mb-2 inline-block"
+                class="mb-2 inline-block text-sm text-blue-600 hover:underline"
             >
                 ← Volver a convocatorias
             </a>
-            <div class="flex justify-between items-start">
+            <div class="flex items-start justify-between">
                 <div>
-                    <h1 class="text-3xl font-bold text-gray-900">{{ convocatoria.nombre }}</h1>
-                    <p class="text-gray-600 mt-1">{{ convocatoria.fecha_inicio }} - {{ convocatoria.fecha_fin }}</p>
+                    <h1 class="text-3xl font-bold text-gray-900">
+                        {{ convocatoria.nombre }}
+                    </h1>
+                    <p class="mt-1 text-gray-600">
+                        {{ convocatoria.fecha_inicio }} -
+                        {{ convocatoria.fecha_fin }}
+                    </p>
                 </div>
                 <div class="flex gap-2">
                     <a
-                        :href="route('admin.convocatorias.edit', convocatoria.id)"
-                        class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition text-sm"
+                        :href="
+                            route('admin.convocatorias.edit', convocatoria.id)
+                        "
+                        class="rounded-lg bg-gray-100 px-4 py-2 text-sm text-gray-700 transition hover:bg-gray-200"
                     >
                         Editar
                     </a>
                     <button
                         v-if="convocatoria.estado === 'BORRADOR'"
                         @click="activar"
-                        class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition text-sm"
+                        class="rounded-lg bg-green-600 px-4 py-2 text-sm text-white transition hover:bg-green-700"
                     >
                         Activar
                     </button>
                     <button
                         v-if="convocatoria.estado === 'ACTIVA'"
                         @click="finalizar"
-                        class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition text-sm"
+                        class="rounded-lg bg-red-600 px-4 py-2 text-sm text-white transition hover:bg-red-700"
                     >
                         Finalizar
                     </button>
@@ -67,31 +86,43 @@ const finalizar = () => {
         </div>
 
         <!-- Estadísticas compactas -->
-        <div class="grid grid-cols-4 gap-4 mb-6">
-            <div class="bg-white rounded-lg shadow-sm p-4">
-                <div class="text-2xl font-bold text-gray-900">{{ estadisticas.total_postulaciones }}</div>
+        <div class="mb-6 grid grid-cols-4 gap-4">
+            <div class="rounded-lg bg-white p-4 shadow-sm">
+                <div class="text-2xl font-bold text-gray-900">
+                    {{ estadisticas.total_postulaciones }}
+                </div>
                 <div class="text-xs text-gray-600">Postulaciones</div>
             </div>
-            <div class="bg-white rounded-lg shadow-sm p-4">
-                <div class="text-2xl font-bold text-green-600">{{ estadisticas.aprobadas }}</div>
+            <div class="rounded-lg bg-white p-4 shadow-sm">
+                <div class="text-2xl font-bold text-green-600">
+                    {{ estadisticas.aprobadas }}
+                </div>
                 <div class="text-xs text-gray-600">Aprobadas</div>
             </div>
-            <div class="bg-white rounded-lg shadow-sm p-4">
-                <div class="text-2xl font-bold text-gray-900">{{ estadisticas.total_becas }}</div>
+            <div class="rounded-lg bg-white p-4 shadow-sm">
+                <div class="text-2xl font-bold text-gray-900">
+                    {{ estadisticas.total_becas }}
+                </div>
                 <div class="text-xs text-gray-600">Becas</div>
             </div>
-            <div class="bg-white rounded-lg shadow-sm p-4">
-                <div class="text-2xl font-bold text-blue-600">{{ estadisticas.cupos_totales }}</div>
+            <div class="rounded-lg bg-white p-4 shadow-sm">
+                <div class="text-2xl font-bold text-blue-600">
+                    {{ estadisticas.cupos_totales }}
+                </div>
                 <div class="text-xs text-gray-600">Cupos Totales</div>
             </div>
         </div>
 
         <!-- Lista de becas (solo nombres y datos básicos) -->
-        <div class="bg-white rounded-lg shadow-sm p-6">
-            <div class="flex justify-between items-center mb-4">
+        <div class="rounded-lg bg-white p-6 shadow-sm">
+            <div class="mb-4 flex items-center justify-between">
                 <h2 class="text-lg font-semibold text-gray-900">Becas</h2>
                 <a
-                    :href="route('admin.becas.create', { convocatoria_id: convocatoria.id })"
+                    :href="
+                        route('admin.becas.create', {
+                            convocatoria_id: convocatoria.id,
+                        })
+                    "
                     class="text-sm text-blue-600 hover:underline"
                 >
                     + Agregar beca
@@ -102,7 +133,7 @@ const finalizar = () => {
                 <div
                     v-for="beca in convocatoria.becas"
                     :key="beca.id"
-                    class="flex justify-between items-center p-3 border rounded-lg hover:bg-gray-50"
+                    class="flex items-center justify-between rounded-lg border p-3 hover:bg-gray-50"
                 >
                     <div>
                         <a
@@ -111,14 +142,15 @@ const finalizar = () => {
                         >
                             {{ beca.nombre }}
                         </a>
-                        <div class="text-xs text-gray-600 mt-1">
-                            {{ beca.cupos_disponibles }} cupos · {{ beca.requisitos_count }} requisitos
+                        <div class="mt-1 text-xs text-gray-600">
+                            {{ beca.cupos_disponibles }} cupos ·
+                            {{ beca.requisitos_count }} requisitos
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div v-else class="text-center py-8 text-gray-500 text-sm">
+            <div v-else class="py-8 text-center text-sm text-gray-500">
                 No hay becas agregadas
             </div>
         </div>

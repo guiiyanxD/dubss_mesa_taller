@@ -2,7 +2,7 @@
 import { Head, useForm } from '@inertiajs/vue3';
 // Asumiendo que tienes un componente Layout
 // import OperadorLayout from '@/Layouts/OperadorLayout.vue';
-import { router } from '@inertiajs/vue3';
+//import { router } from '@inertiajs/vue3';
 
 const props = defineProps({
     tramite: Object,
@@ -18,7 +18,7 @@ const form = useForm({
 const submitAccion = () => {
     // Definir la ruta de acción (asumiendo que POST o PUT va a una ruta de acción)
     // NECESITARÁS UNA RUTA NUEVA: route('operador.tramites.accion', props.tramite.id)
-    console.log("Acción de validación enviada.");
+    console.log('Acción de validación enviada.');
 
     // EJEMPLO de envío:
     // form.post(route('operador.tramites.accion', props.tramite.id), {
@@ -47,122 +47,215 @@ const estadoDocumentoClass = (estado) => {
     if (estado === 'APROBADO') return 'text-green-600';
     if (estado === 'RECHAZADO') return 'text-red-600';
     return 'text-gray-500';
-}
+};
 </script>
 
 <template>
     <Head :title="'Validar Trámite ' + tramite.codigo" />
 
-    <div class="p-6 max-w-7xl mx-auto">
-        <a :href="route('operador.tramites.pendientes')" class="text-sm text-blue-600 hover:underline mb-4 inline-block">
+    <div class="mx-auto max-w-7xl p-6">
+        <a
+            :href="route('operador.tramites.pendientes')"
+            class="mb-4 inline-block text-sm text-blue-600 hover:underline"
+        >
             ← Volver a Trámites Pendientes
         </a>
 
-        <div class="flex justify-between items-center mb-6">
+        <div class="mb-6 flex items-center justify-between">
             <h1 class="text-3xl font-bold text-gray-900">
                 Revisión: Trámite {{ tramite.codigo }}
             </h1>
             <span
                 :class="estadoBadgeClass(tramite.estado_actual.nombre)"
-                class="px-4 py-1 text-sm font-bold rounded-full border shadow-sm"
+                class="rounded-full border px-4 py-1 text-sm font-bold shadow-sm"
             >
                 {{ tramite.estado_actual.nombre.replace('_', ' ') }}
             </span>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-
-            <div class="lg:col-span-2 space-y-6">
-
-                <div class="bg-white rounded-lg shadow-lg p-6">
-                    <h2 class="text-xl font-semibold text-gray-800 mb-4 border-b pb-2">📂 Documentos Adjuntos</h2>
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+            <div class="space-y-6 lg:col-span-2">
+                <div class="rounded-lg bg-white p-6 shadow-lg">
+                    <h2
+                        class="mb-4 border-b pb-2 text-xl font-semibold text-gray-800"
+                    >
+                        📂 Documentos Adjuntos
+                    </h2>
                     <ul class="divide-y divide-gray-200">
-                        <li v-for="doc in tramite.documentos" :key="doc.id" class="flex justify-between items-center py-3">
+                        <li
+                            v-for="doc in tramite.documentos"
+                            :key="doc.id"
+                            class="flex items-center justify-between py-3"
+                        >
                             <div>
-                                <div class="font-medium text-gray-700">{{ doc.nombre }}</div>
-                                <div class="text-xs font-semibold" :class="estadoDocumentoClass(doc.estado_validacion)">
+                                <div class="font-medium text-gray-700">
+                                    {{ doc.nombre }}
+                                </div>
+                                <div
+                                    class="text-xs font-semibold"
+                                    :class="
+                                        estadoDocumentoClass(
+                                            doc.estado_validacion,
+                                        )
+                                    "
+                                >
                                     Estado: {{ doc.estado_validacion }}
                                 </div>
                             </div>
                             <div class="flex items-center space-x-3">
-                                <a :href="doc.url_archivo" target="_blank" class="text-blue-600 hover:text-blue-800 text-sm">
+                                <a
+                                    :href="doc.url_archivo"
+                                    target="_blank"
+                                    class="text-sm text-blue-600 hover:text-blue-800"
+                                >
                                     Ver Archivo
                                 </a>
-                                </div>
+                            </div>
                         </li>
                     </ul>
                 </div>
 
-                <div class="bg-white rounded-lg shadow-lg p-6">
-                    <h2 class="text-xl font-semibold text-gray-800 mb-4 border-b pb-2">📜 Historial de Revisiones</h2>
-                    <ul v-if="tramite.historial && tramite.historial.length" class="space-y-4">
-                        <li v-for="h in tramite.historial" :key="h.id" class="border-l-4 border-gray-300 pl-4">
+                <div class="rounded-lg bg-white p-6 shadow-lg">
+                    <h2
+                        class="mb-4 border-b pb-2 text-xl font-semibold text-gray-800"
+                    >
+                        📜 Historial de Revisiones
+                    </h2>
+                    <ul
+                        v-if="tramite.historial && tramite.historial.length"
+                        class="space-y-4"
+                    >
+                        <li
+                            v-for="h in tramite.historial"
+                            :key="h.id"
+                            class="border-l-4 border-gray-300 pl-4"
+                        >
                             <p class="text-sm font-medium text-gray-900">
                                 {{ h.revisador.nombres }} -
-                                <span class="text-xs text-gray-500">{{ new Date(h.created_at).toLocaleString() }}</span>
+                                <span class="text-xs text-gray-500">{{
+                                    new Date(h.created_at).toLocaleString()
+                                }}</span>
                             </p>
-                            <p class="text-xs text-gray-700 mt-1">
-                                Comentario: {{ h.comentario || 'Sin comentario.' }}
+                            <p class="mt-1 text-xs text-gray-700">
+                                Comentario:
+                                {{ h.comentario || 'Sin comentario.' }}
                             </p>
-                            <p class="text-xs mt-1">
+                            <p class="mt-1 text-xs">
                                 <span class="text-gray-500">Cambio:</span>
-                                <span class="font-medium text-red-600">{{ h.estado_anterior }}</span>
+                                <span class="font-medium text-red-600">{{
+                                    h.estado_anterior
+                                }}</span>
                                 →
-                                <span class="font-medium text-green-600">{{ h.estado_nuevo }}</span>
+                                <span class="font-medium text-green-600">{{
+                                    h.estado_nuevo
+                                }}</span>
                             </p>
                         </li>
                     </ul>
-                    <p v-else class="text-gray-500 text-sm">Este trámite no tiene historial de revisiones.</p>
+                    <p v-else class="text-sm text-gray-500">
+                        Este trámite no tiene historial de revisiones.
+                    </p>
                 </div>
-
             </div>
 
-            <div class="lg:col-span-1 space-y-6">
-
-                <div class="bg-white rounded-lg shadow-lg p-6">
-                    <h2 class="text-xl font-semibold text-gray-800 mb-4 border-b pb-2">🧑 Información Clave</h2>
+            <div class="space-y-6 lg:col-span-1">
+                <div class="rounded-lg bg-white p-6 shadow-lg">
+                    <h2
+                        class="mb-4 border-b pb-2 text-xl font-semibold text-gray-800"
+                    >
+                        🧑 Información Clave
+                    </h2>
                     <dl class="space-y-3 text-sm">
                         <dt class="font-medium text-gray-700">Postulante:</dt>
-                        <dd class="text-gray-900">{{ tramite.postulacion.estudiante.usuario.nombres }}</dd>
+                        <dd class="text-gray-900">
+                            {{ tramite.postulacion.estudiante.usuario.nombres }}
+                        </dd>
 
-                        <dt class="font-medium text-gray-700 pt-2">Cédula (CI):</dt>
-                        <dd class="text-gray-900">{{ tramite.postulacion.estudiante.usuario.ci }}</dd>
+                        <dt class="pt-2 font-medium text-gray-700">
+                            Cédula (CI):
+                        </dt>
+                        <dd class="text-gray-900">
+                            {{ tramite.postulacion.estudiante.usuario.ci }}
+                        </dd>
 
-                        <dt class="font-medium text-gray-700 pt-2">Beca:</dt>
-                        <dd class="text-blue-600 font-semibold">{{ tramite.postulacion.beca.nombre }}</dd>
+                        <dt class="pt-2 font-medium text-gray-700">Beca:</dt>
+                        <dd class="font-semibold text-blue-600">
+                            {{ tramite.postulacion.beca.nombre }}
+                        </dd>
 
-                        <dt class="font-medium text-gray-700 pt-2">Convocatoria:</dt>
-                        <dd class="text-gray-900">{{ tramite.postulacion.beca.convocatoria.nombre }}</dd>
+                        <dt class="pt-2 font-medium text-gray-700">
+                            Convocatoria:
+                        </dt>
+                        <dd class="text-gray-900">
+                            {{ tramite.postulacion.beca.convocatoria.nombre }}
+                        </dd>
 
-                        <dt class="font-medium text-gray-700 pt-2">Carrera / Semestre:</dt>
-                        <dd class="text-gray-900">{{ tramite.postulacion.estudiante.carrera }} (Sem. {{ tramite.postulacion.estudiante.semestre }})</dd>
+                        <dt class="pt-2 font-medium text-gray-700">
+                            Carrera / Semestre:
+                        </dt>
+                        <dd class="text-gray-900">
+                            {{ tramite.postulacion.estudiante.carrera }} (Sem.
+                            {{ tramite.postulacion.estudiante.semestre }})
+                        </dd>
                     </dl>
                 </div>
 
-                <form @submit.prevent="submitAccion" class="bg-white rounded-lg shadow-lg p-6 space-y-4 border-t-4 border-blue-500">
-                    <h2 class="text-xl font-semibold text-gray-800">Decisión Operativa</h2>
+                <form
+                    @submit.prevent="submitAccion"
+                    class="space-y-4 rounded-lg border-t-4 border-blue-500 bg-white p-6 shadow-lg"
+                >
+                    <h2 class="text-xl font-semibold text-gray-800">
+                        Decisión Operativa
+                    </h2>
 
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Acción</label>
-                        <select v-model="form.estado_accion" class="w-full px-3 py-2 border rounded-lg">
+                        <label
+                            class="mb-1 block text-sm font-medium text-gray-700"
+                            >Acción</label
+                        >
+                        <select
+                            v-model="form.estado_accion"
+                            class="w-full rounded-lg border px-3 py-2"
+                        >
                             <option value="APROBAR">✅ Aprobar Trámite</option>
                             <option value="DENEGAR">❌ Denegar Trámite</option>
                         </select>
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Comentario (Obligatorio para Denegar/Devolver)</label>
-                        <textarea v-model="form.comentario" rows="3" class="w-full px-3 py-2 border rounded-lg" placeholder="Motivo de la decisión, observaciones, etc."></textarea>
-                        <div v-if="form.errors.comentario" class="text-red-500 text-xs mt-1">{{ form.errors.comentario }}</div>
+                        <label
+                            class="mb-1 block text-sm font-medium text-gray-700"
+                            >Comentario (Obligatorio para
+                            Denegar/Devolver)</label
+                        >
+                        <textarea
+                            v-model="form.comentario"
+                            rows="3"
+                            class="w-full rounded-lg border px-3 py-2"
+                            placeholder="Motivo de la decisión, observaciones, etc."
+                        ></textarea>
+                        <div
+                            v-if="form.errors.comentario"
+                            class="mt-1 text-xs text-red-500"
+                        >
+                            {{ form.errors.comentario }}
+                        </div>
                     </div>
 
                     <div class="pt-2">
-                        <button type="submit" :disabled="form.processing" class="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50">
-                            {{ form.processing ? 'Procesando...' : 'Registrar Decisión' }}
+                        <button
+                            type="submit"
+                            :disabled="form.processing"
+                            class="w-full rounded-lg bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 disabled:opacity-50"
+                        >
+                            {{
+                                form.processing
+                                    ? 'Procesando...'
+                                    : 'Registrar Decisión'
+                            }}
                         </button>
                     </div>
                 </form>
-
             </div>
         </div>
     </div>

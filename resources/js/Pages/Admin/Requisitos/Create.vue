@@ -36,12 +36,12 @@ const submit = () => {
     <AuthenticatedLayout>
         <Head :title="esEdicion ? 'Editar Requisito' : 'Nuevo Requisito'" />
 
-        <div class="p-6 max-w-3xl mx-auto">
+        <div class="mx-auto max-w-3xl p-6">
             <!-- Header -->
             <div class="mb-6">
                 <a
                     :href="route('admin.requisitos.index')"
-                    class="text-sm text-blue-600 hover:underline mb-2 inline-block"
+                    class="mb-2 inline-block text-sm text-blue-600 hover:underline"
                 >
                     ← Requisitos
                 </a>
@@ -51,33 +51,39 @@ const submit = () => {
             </div>
 
             <!-- Formulario compacto -->
-            <form @submit.prevent="submit" class="bg-white rounded-lg shadow-sm p-6 space-y-4">
+            <form
+                @submit.prevent="submit"
+                class="space-y-4 rounded-lg bg-white p-6 shadow-sm"
+            >
                 <!-- Nombre -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                    <label class="mb-1 block text-sm font-medium text-gray-700">
                         Nombre <span class="text-red-500">*</span>
                     </label>
                     <input
                         v-model="form.nombre"
                         type="text"
                         required
-                        class="w-full px-3 py-2 border rounded-lg"
+                        class="w-full rounded-lg border px-3 py-2"
                         placeholder="Cédula de Identidad"
                     />
-                    <div v-if="form.errors.nombre" class="text-red-500 text-xs mt-1">
+                    <div
+                        v-if="form.errors.nombre"
+                        class="mt-1 text-xs text-red-500"
+                    >
                         {{ form.errors.nombre }}
                     </div>
                 </div>
 
                 <!-- Descripción -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                    <label class="mb-1 block text-sm font-medium text-gray-700">
                         Descripción
                     </label>
                     <textarea
                         v-model="form.descripcion"
                         rows="2"
-                        class="w-full px-3 py-2 border rounded-lg"
+                        class="w-full rounded-lg border px-3 py-2"
                         placeholder="Instrucciones o detalles del requisito..."
                     />
                 </div>
@@ -85,13 +91,15 @@ const submit = () => {
                 <!-- Tipo y Obligatorio en grid -->
                 <div class="grid grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">
+                        <label
+                            class="mb-1 block text-sm font-medium text-gray-700"
+                        >
                             Tipo <span class="text-red-500">*</span>
                         </label>
                         <select
                             v-model="form.tipo"
                             required
-                            class="w-full px-3 py-2 border rounded-lg"
+                            class="w-full rounded-lg border px-3 py-2"
                         >
                             <option
                                 v-for="(label, valor) in tipos"
@@ -101,21 +109,26 @@ const submit = () => {
                                 {{ label }}
                             </option>
                         </select>
-                        <div v-if="form.errors.tipo" class="text-red-500 text-xs mt-1">
+                        <div
+                            v-if="form.errors.tipo"
+                            class="mt-1 text-xs text-red-500"
+                        >
                             {{ form.errors.tipo }}
                         </div>
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">
+                        <label
+                            class="mb-1 block text-sm font-medium text-gray-700"
+                        >
                             Obligatorio
                         </label>
-                        <div class="flex items-center h-10">
-                            <label class="flex items-center cursor-pointer">
+                        <div class="flex h-10 items-center">
+                            <label class="flex cursor-pointer items-center">
                                 <input
                                     v-model="form.obligatorio"
                                     type="checkbox"
-                                    class="w-5 h-5 rounded"
+                                    class="h-5 w-5 rounded"
                                 />
                                 <span class="ml-2 text-sm text-gray-700">
                                     Es obligatorio
@@ -129,14 +142,14 @@ const submit = () => {
                 <div class="flex justify-end gap-3 pt-4">
                     <a
                         :href="route('admin.requisitos.index')"
-                        class="px-4 py-2 text-gray-700 border rounded-lg hover:bg-gray-50"
+                        class="rounded-lg border px-4 py-2 text-gray-700 hover:bg-gray-50"
                     >
                         Cancelar
                     </a>
                     <button
                         type="submit"
                         :disabled="form.processing"
-                        class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
+                        class="rounded-lg bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 disabled:opacity-50"
                     >
                         {{ form.processing ? 'Guardando...' : 'Guardar' }}
                     </button>
@@ -144,5 +157,4 @@ const submit = () => {
             </form>
         </div>
     </AuthenticatedLayout>
-
 </template>

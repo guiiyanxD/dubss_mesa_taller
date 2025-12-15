@@ -84,18 +84,21 @@ const actions = [
     <Head title="Dashboard - Operador" />
 
     <AuthenticatedLayout>
-        <div class="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-
+        <div
+            class="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100"
+        >
+            <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
                 <!-- Mensajes Flash -->
                 <Transition name="slide-down">
                     <div
                         v-if="showSuccessMessage && page.props.flash?.success"
-                        class="mb-6 bg-green-50 border-l-4 border-green-500 p-4 rounded-lg shadow-lg"
+                        class="mb-6 rounded-lg border-l-4 border-green-500 bg-green-50 p-4 shadow-lg"
                     >
                         <div class="flex items-center">
-                            <span class="text-2xl mr-3">✅</span>
-                            <p class="text-green-800 font-semibold">{{ page.props.flash.success }}</p>
+                            <span class="mr-3 text-2xl">✅</span>
+                            <p class="font-semibold text-green-800">
+                                {{ page.props.flash.success }}
+                            </p>
                         </div>
                     </div>
                 </Transition>
@@ -103,18 +106,20 @@ const actions = [
                 <Transition name="slide-down">
                     <div
                         v-if="showErrorMessage && page.props.flash?.error"
-                        class="mb-6 bg-red-50 border-l-4 border-red-500 p-4 rounded-lg shadow-lg"
+                        class="mb-6 rounded-lg border-l-4 border-red-500 bg-red-50 p-4 shadow-lg"
                     >
                         <div class="flex items-center">
-                            <span class="text-2xl mr-3">❌</span>
-                            <p class="text-red-800 font-semibold">{{ page.props.flash.error }}</p>
+                            <span class="mr-3 text-2xl">❌</span>
+                            <p class="font-semibold text-red-800">
+                                {{ page.props.flash.error }}
+                            </p>
                         </div>
                     </div>
                 </Transition>
 
                 <!-- Header -->
                 <div class="mb-8">
-                    <h1 class="text-4xl font-bold text-slate-900 mb-2">
+                    <h1 class="mb-2 text-4xl font-bold text-slate-900">
                         Panel del Operador
                     </h1>
                     <p class="text-lg text-slate-600">
@@ -123,20 +128,27 @@ const actions = [
                 </div>
 
                 <!-- Estadísticas -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="mb-8 grid grid-cols-1 gap-6 md:grid-cols-3">
                     <div
                         v-for="stat in stats"
                         :key="stat.name"
-                        class="relative overflow-hidden rounded-2xl bg-white shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-slate-300/50 transition-all duration-300"
+                        class="relative overflow-hidden rounded-2xl bg-white shadow-xl shadow-slate-200/50 transition-all duration-300 hover:shadow-2xl hover:shadow-slate-300/50"
                     >
-                        <div class="absolute inset-0 bg-gradient-to-br opacity-5" :class="stat.color"></div>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br opacity-5"
+                            :class="stat.color"
+                        ></div>
                         <div class="relative p-6">
                             <div class="flex items-center justify-between">
                                 <div>
-                                    <p class="text-sm font-medium text-slate-600 uppercase tracking-wider">
+                                    <p
+                                        class="text-sm font-medium uppercase tracking-wider text-slate-600"
+                                    >
                                         {{ stat.name }}
                                     </p>
-                                    <p class="mt-2 text-4xl font-bold text-slate-900">
+                                    <p
+                                        class="mt-2 text-4xl font-bold text-slate-900"
+                                    >
                                         {{ stat.value }}
                                     </p>
                                 </div>
@@ -150,23 +162,30 @@ const actions = [
 
                 <!-- Acciones Rápidas -->
                 <div class="mb-8">
-                    <h2 class="text-2xl font-bold text-slate-900 mb-6">
+                    <h2 class="mb-6 text-2xl font-bold text-slate-900">
                         Acciones Rápidas
                     </h2>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div
+                        class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4"
+                    >
                         <Link
                             v-for="action in actions"
                             :key="action.title"
                             :href="route(action.route)"
-                            class="group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
+                            class="group relative transform overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
                         >
-                            <div class="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 transition-opacity" :class="action.color"></div>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-br opacity-0 transition-opacity group-hover:opacity-10"
+                                :class="action.color"
+                            ></div>
                             <div class="relative p-6">
-                                <div class="text-5xl mb-4">
+                                <div class="mb-4 text-5xl">
                                     {{ action.icon }}
                                 </div>
-                                <h3 class="text-lg font-bold text-slate-900 mb-2">
+                                <h3
+                                    class="mb-2 text-lg font-bold text-slate-900"
+                                >
                                     {{ action.title }}
                                 </h3>
                                 <p class="text-sm text-slate-600">
@@ -174,7 +193,7 @@ const actions = [
                                 </p>
                             </div>
                             <div
-                                class="absolute bottom-0 left-0 right-0 h-1 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"
+                                class="absolute bottom-0 left-0 right-0 h-1 origin-left scale-x-0 transform transition-transform group-hover:scale-x-100"
                                 :class="action.color"
                             ></div>
                         </Link>
@@ -182,58 +201,83 @@ const actions = [
                 </div>
 
                 <!-- Flujo del Proceso -->
-                <div class="bg-white rounded-2xl shadow-xl p-8">
-                    <h2 class="text-2xl font-bold text-slate-900 mb-6">
+                <div class="rounded-2xl bg-white p-8 shadow-xl">
+                    <h2 class="mb-6 text-2xl font-bold text-slate-900">
                         Flujo del Proceso
                     </h2>
 
-                    <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                    <div class="grid grid-cols-1 gap-4 md:grid-cols-5">
                         <div class="flex flex-col items-center text-center">
-                            <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center text-2xl mb-3">
+                            <div
+                                class="mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-blue-100 text-2xl"
+                            >
                                 🔍
                             </div>
-                            <h4 class="font-bold text-slate-900 mb-1">Búsqueda</h4>
+                            <h4 class="mb-1 font-bold text-slate-900">
+                                Búsqueda
+                            </h4>
                             <p class="text-xs text-slate-600">Buscar por CI</p>
                         </div>
 
-                        <div class="hidden md:flex items-center justify-center">
-                            <div class="w-full h-1 bg-gradient-to-r from-blue-500 to-amber-500"></div>
+                        <div class="hidden items-center justify-center md:flex">
+                            <div
+                                class="h-1 w-full bg-gradient-to-r from-blue-500 to-amber-500"
+                            ></div>
                         </div>
 
                         <div class="flex flex-col items-center text-center">
-                            <div class="w-16 h-16 rounded-full bg-amber-100 flex items-center justify-center text-2xl mb-3">
+                            <div
+                                class="mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-amber-100 text-2xl"
+                            >
                                 ✅
                             </div>
-                            <h4 class="font-bold text-slate-900 mb-1">Validación</h4>
-                            <p class="text-xs text-slate-600">Revisar docs físicos</p>
+                            <h4 class="mb-1 font-bold text-slate-900">
+                                Validación
+                            </h4>
+                            <p class="text-xs text-slate-600">
+                                Revisar docs físicos
+                            </p>
                         </div>
 
-                        <div class="hidden md:flex items-center justify-center">
-                            <div class="w-full h-1 bg-gradient-to-r from-amber-500 to-green-500"></div>
+                        <div class="hidden items-center justify-center md:flex">
+                            <div
+                                class="h-1 w-full bg-gradient-to-r from-amber-500 to-green-500"
+                            ></div>
                         </div>
 
                         <div class="flex flex-col items-center text-center">
-                            <div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center text-2xl mb-3">
+                            <div
+                                class="mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-green-100 text-2xl"
+                            >
                                 📄
                             </div>
-                            <h4 class="font-bold text-slate-900 mb-1">Digitalización</h4>
-                            <p class="text-xs text-slate-600">Escanear documentos</p>
+                            <h4 class="mb-1 font-bold text-slate-900">
+                                Digitalización
+                            </h4>
+                            <p class="text-xs text-slate-600">
+                                Escanear documentos
+                            </p>
                         </div>
 
-                        <div class="hidden md:flex items-center justify-center">
-                            <div class="w-full h-1 bg-gradient-to-r from-green-500 to-purple-500"></div>
+                        <div class="hidden items-center justify-center md:flex">
+                            <div
+                                class="h-1 w-full bg-gradient-to-r from-green-500 to-purple-500"
+                            ></div>
                         </div>
 
                         <div class="flex flex-col items-center text-center">
-                            <div class="w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center text-2xl mb-3">
+                            <div
+                                class="mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-purple-100 text-2xl"
+                            >
                                 🤖
                             </div>
-                            <h4 class="font-bold text-slate-900 mb-1">Clasificación</h4>
+                            <h4 class="mb-1 font-bold text-slate-900">
+                                Clasificación
+                            </h4>
                             <p class="text-xs text-slate-600">Automático</p>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </AuthenticatedLayout>
@@ -242,8 +286,13 @@ const actions = [
 <style scoped>
 /* Animaciones personalizadas */
 @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 .group:hover .text-5xl {

@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 import { Head, router } from '@inertiajs/vue3';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 
@@ -73,8 +73,12 @@ const getPuntajeColor = (puntaje) => {
                 <div class="mb-6">
                     <div class="mb-2 flex items-center gap-3">
                         <button
-                            @click="$inertia.visit(route('admin.resultados.dashboard'))"
-                            class="px-4 py-2 bg-white rounded-lg hover:bg-slate-100 transition-all"
+                            @click="
+                                $inertia.visit(
+                                    route('admin.resultados.dashboard'),
+                                )
+                            "
+                            class="rounded-lg bg-white px-4 py-2 transition-all hover:bg-slate-100"
                         >
                             ← Volver
                         </button>
@@ -83,14 +87,16 @@ const getPuntajeColor = (puntaje) => {
                         </h1>
                     </div>
                     <p class="text-slate-600">
-                        Código: {{ ranking.beca.codigo }} •
-                        Cupos disponibles: <span class="font-bold">{{ ranking.beca.cupos_disponibles }}</span>
+                        Código: {{ ranking.beca.codigo }} • Cupos disponibles:
+                        <span class="font-bold">{{
+                            ranking.beca.cupos_disponibles
+                        }}</span>
                     </p>
                 </div>
 
                 <!-- Filtros -->
                 <div class="mb-6 rounded-2xl bg-white p-6 shadow-lg">
-                    <div class="flex items-center justify-between mb-4">
+                    <div class="mb-4 flex items-center justify-between">
                         <h2 class="text-lg font-bold text-slate-900">
                             🔍 Filtros
                         </h2>
@@ -102,7 +108,7 @@ const getPuntajeColor = (puntaje) => {
                         </button>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                    <div class="grid grid-cols-1 gap-4 md:grid-cols-5">
                         <div>
                             <label
                                 class="mb-2 block text-sm font-semibold text-slate-700"
@@ -127,7 +133,7 @@ const getPuntajeColor = (puntaje) => {
                                 v-model="filtrosActuales.carrera"
                                 type="text"
                                 placeholder="Ej: Ingeniería"
-                                class="w-full px-3 py-2 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                                class="w-full rounded-lg border-2 border-slate-200 px-3 py-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
                             />
                         </div>
 
@@ -140,45 +146,51 @@ const getPuntajeColor = (puntaje) => {
                                 v-model="filtrosActuales.ciudad"
                                 type="text"
                                 placeholder="Ej: La Paz"
-                                class="w-full px-3 py-2 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                                class="w-full rounded-lg border-2 border-slate-200 px-3 py-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
                             />
                         </div>
 
                         <div>
-                            <label class="block text-sm font-semibold text-slate-700 mb-2">Puntaje Mín</label>
+                            <label
+                                class="mb-2 block text-sm font-semibold text-slate-700"
+                                >Puntaje Mín</label
+                            >
                             <input
                                 v-model.number="filtrosActuales.puntaje_min"
                                 type="number"
                                 min="0"
                                 max="100"
                                 placeholder="0"
-                                class="w-full px-3 py-2 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                                class="w-full rounded-lg border-2 border-slate-200 px-3 py-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
                             />
                         </div>
 
                         <div>
-                            <label class="block text-sm font-semibold text-slate-700 mb-2">Puntaje Máx</label>
+                            <label
+                                class="mb-2 block text-sm font-semibold text-slate-700"
+                                >Puntaje Máx</label
+                            >
                             <input
                                 v-model.number="filtrosActuales.puntaje_max"
                                 type="number"
                                 min="0"
                                 max="100"
                                 placeholder="100"
-                                class="w-full px-3 py-2 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                                class="w-full rounded-lg border-2 border-slate-200 px-3 py-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
                             />
                         </div>
                     </div>
 
-                    <div class="flex gap-3 mt-4">
+                    <div class="mt-4 flex gap-3">
                         <button
                             @click="aplicarFiltros"
-                            class="px-6 py-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold rounded-lg transition-all"
+                            class="rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 px-6 py-2 font-semibold text-white transition-all hover:from-blue-600 hover:to-blue-700"
                         >
                             Aplicar Filtros
                         </button>
                         <button
                             @click="exportarExcel"
-                            class="px-6 py-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold rounded-lg transition-all"
+                            class="rounded-lg bg-gradient-to-r from-green-500 to-green-600 px-6 py-2 font-semibold text-white transition-all hover:from-green-600 hover:to-green-700"
                         >
                             📥 Exportar Excel
                         </button>
@@ -186,44 +198,92 @@ const getPuntajeColor = (puntaje) => {
                 </div>
 
                 <!-- Tabla de ranking -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                <div class="overflow-hidden rounded-2xl bg-white shadow-lg">
                     <div class="overflow-x-auto">
                         <table class="w-full">
-                            <thead class="bg-gradient-to-r from-blue-500 to-blue-600 text-white">
+                            <thead
+                                class="bg-gradient-to-r from-blue-500 to-blue-600 text-white"
+                            >
                                 <tr>
-                                    <th class="px-6 py-4 text-left text-sm font-bold">Pos.</th>
-                                    <th class="px-6 py-4 text-left text-sm font-bold">Estudiante</th>
-                                    <th class="px-6 py-4 text-left text-sm font-bold">CI</th>
-                                    <th class="px-6 py-4 text-left text-sm font-bold">Carrera</th>
-                                    <th class="px-6 py-4 text-center text-sm font-bold">Puntaje</th>
-                                    <th class="px-6 py-4 text-center text-sm font-bold">Estado</th>
-                                    <th class="px-6 py-4 text-center text-sm font-bold">Acciones</th>
+                                    <th
+                                        class="px-6 py-4 text-left text-sm font-bold"
+                                    >
+                                        Pos.
+                                    </th>
+                                    <th
+                                        class="px-6 py-4 text-left text-sm font-bold"
+                                    >
+                                        Estudiante
+                                    </th>
+                                    <th
+                                        class="px-6 py-4 text-left text-sm font-bold"
+                                    >
+                                        CI
+                                    </th>
+                                    <th
+                                        class="px-6 py-4 text-left text-sm font-bold"
+                                    >
+                                        Carrera
+                                    </th>
+                                    <th
+                                        class="px-6 py-4 text-center text-sm font-bold"
+                                    >
+                                        Puntaje
+                                    </th>
+                                    <th
+                                        class="px-6 py-4 text-center text-sm font-bold"
+                                    >
+                                        Estado
+                                    </th>
+                                    <th
+                                        class="px-6 py-4 text-center text-sm font-bold"
+                                    >
+                                        Acciones
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-slate-200">
                                 <tr
-                                    v-for="(postulacion, index) in ranking.ranking"
+                                    v-for="(
+                                        postulacion, index
+                                    ) in ranking.ranking"
                                     :key="postulacion.id"
-                                    class="hover:bg-slate-50 transition-colors"
+                                    class="transition-colors hover:bg-slate-50"
                                     :class="{
-                                        'bg-green-50': postulacion.posicion_ranking <= ranking.beca.cupos_disponibles,
-                                        'border-t-4 border-red-500': postulacion.posicion_ranking === ranking.beca.cupos_disponibles + 1,
+                                        'bg-green-50':
+                                            postulacion.posicion_ranking <=
+                                            ranking.beca.cupos_disponibles,
+                                        'border-t-4 border-red-500':
+                                            postulacion.posicion_ranking ===
+                                            ranking.beca.cupos_disponibles + 1,
                                     }"
                                 >
                                     <td class="px-6 py-4">
-                                        <span class="text-2xl font-bold text-slate-700">
-                                            {{ postulacion.posicion_ranking || (index + 1) }}
+                                        <span
+                                            class="text-2xl font-bold text-slate-700"
+                                        >
+                                            {{
+                                                postulacion.posicion_ranking ||
+                                                index + 1
+                                            }}
                                         </span>
                                     </td>
                                     <td class="px-6 py-4">
                                         <p class="font-semibold text-slate-900">
-                                            {{ postulacion.estudiante.user.name }}
+                                            {{
+                                                postulacion.estudiante.user.name
+                                            }}
                                         </p>
                                         <p class="text-xs text-slate-500">
-                                            {{ postulacion.estudiante.user.email }}
+                                            {{
+                                                postulacion.estudiante.user
+                                                    .email
+                                            }}
                                         </p>
                                     </td>
-                                    <td class="px-6 py-4 font-mono text-slate-700">
+                                    <td
+                                        class="px-6 py-4 font-mono text-slate-700"
+                                    >
                                         {{ postulacion.estudiante.user.ci }}
                                     </td>
                                     <td class="px-6 py-4 text-slate-700">
@@ -232,24 +292,44 @@ const getPuntajeColor = (puntaje) => {
                                     <td class="px-6 py-4 text-center">
                                         <span
                                             class="text-3xl font-bold"
-                                            :class="getPuntajeColor(postulacion.puntaje_final)"
+                                            :class="
+                                                getPuntajeColor(
+                                                    postulacion.puntaje_final,
+                                                )
+                                            "
                                         >
                                             {{ postulacion.puntaje_final }}
                                         </span>
                                     </td>
                                     <td class="px-6 py-4 text-center">
                                         <span
-                                            class="inline-block px-3 py-1 rounded-full text-sm font-bold border-2"
-                                            :class="getEstadoBadge(postulacion.estado_postulado)"
+                                            class="inline-block rounded-full border-2 px-3 py-1 text-sm font-bold"
+                                            :class="
+                                                getEstadoBadge(
+                                                    postulacion.estado_postulado,
+                                                )
+                                            "
                                         >
-                                            {{ postulacion.estado_postulado === 'APROBADO' ? '✅' : '❌' }}
+                                            {{
+                                                postulacion.estado_postulado ===
+                                                'APROBADO'
+                                                    ? '✅'
+                                                    : '❌'
+                                            }}
                                             {{ postulacion.estado_postulado }}
                                         </span>
                                     </td>
                                     <td class="px-6 py-4 text-center">
                                         <button
-                                            @click="$inertia.visit(route('admin.postulaciones.detalle', postulacion.id))"
-                                            class="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white text-sm font-semibold rounded-lg transition-all"
+                                            @click="
+                                                $inertia.visit(
+                                                    route(
+                                                        'admin.postulaciones.detalle',
+                                                        postulacion.id,
+                                                    ),
+                                                )
+                                            "
+                                            class="rounded-lg bg-blue-500 px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-blue-600"
                                         >
                                             Ver Detalle
                                         </button>
@@ -257,11 +337,21 @@ const getPuntajeColor = (puntaje) => {
                                 </tr>
 
                                 <!-- Línea de corte de cupos -->
-                                <tr v-if="ranking.ranking.length > ranking.beca.cupos_disponibles">
-                                    <td colspan="7" class="px-6 py-3 bg-red-50">
-                                        <div class="flex items-center justify-center gap-2 text-red-700 font-bold">
+                                <tr
+                                    v-if="
+                                        ranking.ranking.length >
+                                        ranking.beca.cupos_disponibles
+                                    "
+                                >
+                                    <td colspan="7" class="bg-red-50 px-6 py-3">
+                                        <div
+                                            class="flex items-center justify-center gap-2 font-bold text-red-700"
+                                        >
                                             <span>⚠️</span>
-                                            <span>CORTE DE CUPOS - Por debajo de esta línea: DENEGADOS</span>
+                                            <span
+                                                >CORTE DE CUPOS - Por debajo de
+                                                esta línea: DENEGADOS</span
+                                            >
                                         </div>
                                     </td>
                                 </tr>
@@ -270,32 +360,58 @@ const getPuntajeColor = (puntaje) => {
                     </div>
 
                     <!-- Paginación -->
-                    <div class="bg-slate-50 px-6 py-4 flex items-center justify-between border-t border-slate-200">
+                    <div
+                        class="flex items-center justify-between border-t border-slate-200 bg-slate-50 px-6 py-4"
+                    >
                         <div class="text-sm text-slate-600">
-                            Mostrando {{ ranking.ranking.length }} de {{ ranking.pagination.total }} resultados
+                            Mostrando {{ ranking.ranking.length }} de
+                            {{ ranking.pagination.total }} resultados
                         </div>
                         <div class="flex gap-2">
                             <button
                                 v-if="ranking.pagination.current_page > 1"
-                                @click="router.get(route('admin.becas.ranking', { id: ranking.beca.id, page: ranking.pagination.current_page - 1 }))"
-                                class="px-4 py-2 bg-white border border-slate-300 rounded-lg hover:bg-slate-100 transition-all"
+                                @click="
+                                    router.get(
+                                        route('admin.becas.ranking', {
+                                            id: ranking.beca.id,
+                                            page:
+                                                ranking.pagination
+                                                    .current_page - 1,
+                                        }),
+                                    )
+                                "
+                                class="rounded-lg border border-slate-300 bg-white px-4 py-2 transition-all hover:bg-slate-100"
                             >
                                 ← Anterior
                             </button>
-                            <span class="px-4 py-2 bg-blue-500 text-white rounded-lg font-semibold">
-                                {{ ranking.pagination.current_page }} / {{ ranking.pagination.last_page }}
+                            <span
+                                class="rounded-lg bg-blue-500 px-4 py-2 font-semibold text-white"
+                            >
+                                {{ ranking.pagination.current_page }} /
+                                {{ ranking.pagination.last_page }}
                             </span>
                             <button
-                                v-if="ranking.pagination.current_page < ranking.pagination.last_page"
-                                @click="router.get(route('admin.becas.ranking', { id: ranking.beca.id, page: ranking.pagination.current_page + 1 }))"
-                                class="px-4 py-2 bg-white border border-slate-300 rounded-lg hover:bg-slate-100 transition-all"
+                                v-if="
+                                    ranking.pagination.current_page <
+                                    ranking.pagination.last_page
+                                "
+                                @click="
+                                    router.get(
+                                        route('admin.becas.ranking', {
+                                            id: ranking.beca.id,
+                                            page:
+                                                ranking.pagination
+                                                    .current_page + 1,
+                                        }),
+                                    )
+                                "
+                                class="rounded-lg border border-slate-300 bg-white px-4 py-2 transition-all hover:bg-slate-100"
                             >
                                 Siguiente →
                             </button>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </AuthenticatedLayout>
@@ -304,7 +420,8 @@ const getPuntajeColor = (puntaje) => {
 <style scoped>
 /* Animación para el corte de cupos */
 @keyframes pulse-red {
-    0%, 100% {
+    0%,
+    100% {
         background-color: rgb(254 242 242);
     }
     50% {
