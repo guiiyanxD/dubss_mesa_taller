@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\RequisitoController;
 use App\Http\Controllers\Admin\ConvocatoriaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FormularioSocioEconomicoController;
+use App\Http\Controllers\Admin\TipoTenenciaViviendaController;
 use Inertia\Inertia;
 
 Route::get('/', function () {
@@ -22,16 +23,15 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('convocatorias/activas', [ConvocatoriaController::class, 'getConvocatoriasActivas'])->name('convocatorias.activas');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])
         ->name('dashboard');
 });
+
+
+Route::get('convocatorias/activas', [ConvocatoriaController::class, 'getConvocatoriasActivas'])->name('convocatorias.activas');
 Route::get('/convocatorias/{id}/becas', [ConvocatoriaController::class, 'getBecas'])->name('admin.convocatorias.becas');
-
-
-
 Route::get('/formularios/crear', [FormularioSocioEconomicoController::class, 'create'])->name('formularios.create');
 
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
@@ -124,6 +124,13 @@ Route::middleware(['auth', 'verified'])->prefix('operador')->name('operador.')->
 
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
 
+    //TipoTenenciaVivienda
+    //Route::resource('tipos-tenencia', App\Http\Controllers\Admin\TipoTenenciaViviendaController::class)->name('tipos-tenencia');
+    Route::get('tipos-tenencia', [TipoTenenciaViviendaController::class, 'index'])->name('tipos-tenencia.index');
+    Route::get('tipos-tenencia/create', [TipoTenenciaViviendaController::class, 'create'])->name('tipos-tenencia.create');
+    Route::post('tipos-tenencia', [TipoTenenciaViviendaController::class, 'store'])->name('tipos-tenencia.store');
+    Route::delete('tipos-tenencia/{tipoTenenciaVivienda}', [TipoTenenciaViviendaController::class, 'destroy'])->name('tipos-tenencia.destroy');
+    Route::get('habilitar-tipo-tenencia/{id}', [TipoTenenciaViviendaController::class, 'habilitar'])->name('tipos-tenencia.habilitar');
     // Dashboard de resultados
     Route::get('/resultados/dashboard', [AdminResultadosController::class, 'dashboard'])
         ->name('resultados.dashboard');

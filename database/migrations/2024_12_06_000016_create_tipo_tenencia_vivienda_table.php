@@ -13,16 +13,11 @@ return new class extends Migration
     {
         Schema::create('tipo_tenencia_vivienda', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_tenencia_vivienda');
             $table->string('nombre', 100);
-            $table->string('documento_adjuntar', 255)->nullable();
-            $table->decimal('puntaje', 3, 1)->nullable();
+            $table->string('documento_adjuntar', 255);
+            $table->decimal('puntaje', 5, 2)->nullable();
+            $table->boolean('activo')->default(true);
             $table->timestamps();
-
-            $table->foreign('id_tenencia_vivienda')
-                  ->references('id')
-                  ->on('tenencia_vivienda')
-                  ->onDelete('cascade');
         });
     }
 

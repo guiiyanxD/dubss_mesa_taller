@@ -25,7 +25,8 @@ class TipoTenenciaVivienda extends Model
         'id_tenencia_vivienda',
         'nombre',
         'documento_adjuntar',
-        'puntaje'
+        'puntaje',
+        'activo'
     ];
 
     /**
@@ -34,18 +35,13 @@ class TipoTenenciaVivienda extends Model
      * @var array<string, string>
      */
     protected $casts = [
-        'puntaje' => 'decimal:1'
+        'puntaje' => 'float',
+        'activo' => 'boolean',
     ];
 
     // =====================================================
     // RELACIONES
     // =====================================================
 
-    /**
-     * Relación: tenenciaVivienda
-     */
-    public function tenenciaVivienda()
-    {
-        return $this->belongsTo(TenenciaVivienda::class, 'id_tenencia_vivienda');
-    }
+
 }

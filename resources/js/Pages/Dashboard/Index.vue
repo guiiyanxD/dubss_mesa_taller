@@ -73,6 +73,12 @@ const atajos = {
     // ----------------------------------------------------
     ADMIN: [
         {
+            title: 'Gestion de Tipos de Tenencia de Vivienda',
+            description: 'Gestiona tipos de tenencia de vivienda.',
+            icon: '📊',
+            route: 'admin.tipos-tenencia.index',
+        },
+        {
             title: 'Panel de Resultados y Estadísticas',
             description:
                 'Visualiza reportes, gráficos y métricas de postulaciones.',

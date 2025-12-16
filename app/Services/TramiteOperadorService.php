@@ -26,6 +26,7 @@ class TramiteOperadorService
         if (!$estudiante) {
             return null;
         }
+        return dd($estudiante);
 
         $tramite = Tramite::with([
             'postulacion.estudiante.usuario',

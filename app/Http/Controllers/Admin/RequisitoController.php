@@ -18,17 +18,15 @@ class RequisitoController extends Controller
     {
         $filtros = [
             'tipo' => $request->input('tipo'),
-            // Transformamos 'obligatorio' a booleano si existe, sino null
             'obligatorio' => $request->has('obligatorio')
                             ? (filter_var($request->input('obligatorio'), FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE) ?? $request->input('obligatorio'))
                             : null,
             'busqueda' => $request->input('busqueda'),
         ];
 
-        $perPage = 15; // Límite de paginación por defecto
+        $perPage = 15;
 
         return Inertia::render('Admin/Requisitos/Index', [
-            // CAMBIO 2: Pasamos los filtros y la paginación al servicio
             'requisitos' => $this->requisitoService->listar($filtros, $perPage),
             'tipos' => $this->requisitoService->obtenerTipos(),
             'filtros' => $filtros,
