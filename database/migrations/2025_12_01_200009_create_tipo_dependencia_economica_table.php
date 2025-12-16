@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tipo_ocupacion_dependiente', function (Blueprint $table) {
+        Schema::create('tipo_dependencia_economica', function (Blueprint $table) {
             $table->id();
             $table->string('nombre', 100);
-            $table->string('archivo_adjuntar', 255)->nullable();
             $table->decimal('puntaje', 5, 2)->nullable();
+            $table->boolean('activo')->default(true);
             $table->timestamps();
-
-
         });
     }
 
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tipo_ocupacion_dependiente');
+        Schema::dropIfExists('tipo_dependencia_economica');
     }
 };

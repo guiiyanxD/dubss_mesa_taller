@@ -13,6 +13,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FormularioSocioEconomicoController;
 use App\Http\Controllers\Admin\TipoTenenciaViviendaController;
 use App\Http\Controllers\Admin\RangoIngresoEconomicoController;
+use App\Http\Controllers\Admin\TipoDependenciaEconomicaController;
+
 use Inertia\Inertia;
 
 Route::get('/', function () {
@@ -138,6 +140,13 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     Route::post('rangos-ingreso', [RangoIngresoEconomicoController::class, 'store'])->name('rangos-ingreso.store');
     Route::delete('rangos-ingreso/{id}', [RangoIngresoEconomicoController::class, 'destroy'])->name('rangos-ingreso.destroy');
     Route::get('habilitar-rango-ingreso/{id}', [RangoIngresoEconomicoController::class, 'habilitar'])->name('rangos-ingreso.habilitar');
+
+    //TipoDependenciaEconomica
+    Route::get('tipos-dependencia', [App\Http\Controllers\Admin\TipoDependenciaEconomicaController::class, 'index'])->name('tipos-dependencia.index');
+    Route::get('tipos-dependencia/create', [App\Http\Controllers\Admin\TipoDependenciaEconomicaController::class, 'create'])->name('tipos-dependencia.create');
+    Route::post('tipos-dependencia', [App\Http\Controllers\Admin\TipoDependenciaEconomicaController::class, 'store'])->name('tipos-dependencia.store');
+    Route::delete('tipos-dependencia/{id}', [App\Http\Controllers\Admin\TipoDependenciaEconomicaController::class, 'destroy'])->name('tipos-dependencia.destroy');
+    Route::get('habilitar-tipo-dependencia/{id}', [App\Http\Controllers\Admin\TipoDependenciaEconomicaController::class, 'habilitar'])->name('tipos-dependencia.habilitar');
 
 
     // Dashboard de resultados
