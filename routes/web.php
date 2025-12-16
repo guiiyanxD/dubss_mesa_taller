@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\ConvocatoriaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FormularioSocioEconomicoController;
 use App\Http\Controllers\Admin\TipoTenenciaViviendaController;
+use App\Http\Controllers\Admin\RangoIngresoEconomicoController;
 use Inertia\Inertia;
 
 Route::get('/', function () {
@@ -125,12 +126,20 @@ Route::middleware(['auth', 'verified'])->prefix('operador')->name('operador.')->
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
 
     //TipoTenenciaVivienda
-    //Route::resource('tipos-tenencia', App\Http\Controllers\Admin\TipoTenenciaViviendaController::class)->name('tipos-tenencia');
     Route::get('tipos-tenencia', [TipoTenenciaViviendaController::class, 'index'])->name('tipos-tenencia.index');
     Route::get('tipos-tenencia/create', [TipoTenenciaViviendaController::class, 'create'])->name('tipos-tenencia.create');
     Route::post('tipos-tenencia', [TipoTenenciaViviendaController::class, 'store'])->name('tipos-tenencia.store');
     Route::delete('tipos-tenencia/{tipoTenenciaVivienda}', [TipoTenenciaViviendaController::class, 'destroy'])->name('tipos-tenencia.destroy');
     Route::get('habilitar-tipo-tenencia/{id}', [TipoTenenciaViviendaController::class, 'habilitar'])->name('tipos-tenencia.habilitar');
+
+    //RangoIngresoEconomico
+    Route::get('rangos-ingreso', [RangoIngresoEconomicoController::class, 'index'])->name('rangos-ingreso.index');
+    Route::get('rangos-ingreso/create', [RangoIngresoEconomicoController::class, 'create'])->name('rangos-ingreso.create');
+    Route::post('rangos-ingreso', [RangoIngresoEconomicoController::class, 'store'])->name('rangos-ingreso.store');
+    Route::delete('rangos-ingreso/{id}', [RangoIngresoEconomicoController::class, 'destroy'])->name('rangos-ingreso.destroy');
+    Route::get('habilitar-rango-ingreso/{id}', [RangoIngresoEconomicoController::class, 'habilitar'])->name('rangos-ingreso.habilitar');
+
+
     // Dashboard de resultados
     Route::get('/resultados/dashboard', [AdminResultadosController::class, 'dashboard'])
         ->name('resultados.dashboard');

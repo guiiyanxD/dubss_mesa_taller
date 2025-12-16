@@ -79,6 +79,12 @@ const atajos = {
             route: 'admin.tipos-tenencia.index',
         },
         {
+            title: 'Gestion de Rangos de Ingreso Económico',
+            description: 'Gestiona rangos de ingreso económico.',
+            icon: '📊',
+            route: 'admin.rangos-ingreso.index',
+        },
+        {
             title: 'Panel de Resultados y Estadísticas',
             description:
                 'Visualiza reportes, gráficos y métricas de postulaciones.',

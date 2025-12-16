@@ -53,7 +53,7 @@ class FormularioSocioEconomicoSeeder extends Seeder
             // Miembros del grupo familiar
             $parentescos = ['Padre', 'Madre', 'Hermano/a', 'Hermano/a'];
             $ocupaciones = ['Comerciante', 'Albañil', 'Ama de casa', 'Estudiante'];
-            
+
             for ($i = 0; $i < min($cantidadFamiliares, 4); $i++) {
                 MiembroFamiliar::create([
                     'id_grupo_familiar' => $grupoFamiliar->id,
@@ -76,11 +76,11 @@ class FormularioSocioEconomicoSeeder extends Seeder
             ]);
 
             // Ingreso Económico
-            IngresoEconomico::create([
+            /*IngresoEconomico::create([
                 'id_dependencia_eco' => $dependencia->id,
                 'rango_monto' => ['0-1000', '1001-2000', '2001-3000', '3001-5000'][rand(0, 3)],
                 'puntaje' => round(rand(40, 100) / 10, 2),
-            ]);
+            ]);*/
 
             // Residencia
             Residencia::create([

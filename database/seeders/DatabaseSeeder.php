@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->command->info('');
         $this->command->info('═══════════════════════════════════════════════════════');
-        $this->command->info('  🌱 INICIANDO SEEDERS DE DUBSS');
+        $this->command->info('  INICIANDO SEEDERS DE DUBSS');
         $this->command->info('═══════════════════════════════════════════════════════');
         $this->command->info('');
 
@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
 
             // 2. Usuarios base
             UserSeeder::class,
+            RangoIngresoEconomicoSeeder::class,
 
             // 3. Perfiles especializados
             EstudianteSeeder::class,

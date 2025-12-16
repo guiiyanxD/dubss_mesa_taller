@@ -22,7 +22,6 @@ class TipoTenenciaVivienda extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'id_tenencia_vivienda',
         'nombre',
         'documento_adjuntar',
         'puntaje',

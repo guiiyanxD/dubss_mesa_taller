@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class IngresoEconomico extends Model
+class RangoIngresoEconomico extends Model
 {
     use HasFactory;
 
@@ -14,7 +14,7 @@ class IngresoEconomico extends Model
      *
      * @var string
      */
-    protected $table = 'ingreso_economico';
+    protected $table = 'rango_ingreso_economico';
 
     /**
      * The attributes that are mass assignable.
@@ -22,9 +22,9 @@ class IngresoEconomico extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'id_dependencia_eco',
-        'rango_monto',
-        'puntaje'
+        'rango_nombre',
+        'puntaje',
+        'activo',
     ];
 
     /**
@@ -33,18 +33,12 @@ class IngresoEconomico extends Model
      * @var array<string, string>
      */
     protected $casts = [
-        'puntaje' => 'decimal:2'
+        'puntaje' => 'float',
+        'activo' => 'boolean',
     ];
 
     // =====================================================
     // RELACIONES
     // =====================================================
 
-    /**
-     * Relación: dependenciaEconomica
-     */
-    public function dependenciaEconomica()
-    {
-        return $this->belongsTo(DependenciaEconomica::class, 'id_dependencia_eco');
-    }
 }

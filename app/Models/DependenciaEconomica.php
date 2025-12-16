@@ -44,27 +44,5 @@ class DependenciaEconomica extends Model
     // RELACIONES
     // =====================================================
 
-    /**
-     * Relación: formulario
-     */
-    public function formulario()
-    {
-        return $this->belongsTo(FormularioSocioEconomico::class, 'id_formulario');
-    }
 
-    /**
-     * Relación: ingresoEconomico
-     */
-    public function ingresosEconomicos()
-    {
-        return $this->hasOne(IngresoEconomico::class, 'id_dependencia_eco');
-    }
-
-    /**
-     * Relación: tiposOcupacion
-     */
-    public function tiposOcupacion()
-    {
-        return $this->hasMany(TipoOcupacionDependiente::class, 'id_dependencia_eco');
-    }
 }
