@@ -14,6 +14,7 @@ use App\Http\Controllers\FormularioSocioEconomicoController;
 use App\Http\Controllers\Admin\TipoTenenciaViviendaController;
 use App\Http\Controllers\Admin\RangoIngresoEconomicoController;
 use App\Http\Controllers\Admin\TipoDependenciaEconomicaController;
+use App\Http\Controllers\Admin\TipoOcupacionDependienteController;
 
 use Inertia\Inertia;
 
@@ -148,6 +149,9 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     Route::delete('tipos-dependencia/{id}', [App\Http\Controllers\Admin\TipoDependenciaEconomicaController::class, 'destroy'])->name('tipos-dependencia.destroy');
     Route::get('habilitar-tipo-dependencia/{id}', [App\Http\Controllers\Admin\TipoDependenciaEconomicaController::class, 'habilitar'])->name('tipos-dependencia.habilitar');
 
+    //TIPO OCUPACION DEPENDIENTE
+    Route::resource('tipo-ocupacion-dependiente', TipoOcupacionDependienteController::class)->names('tipo-ocupacion-dependiente');
+    Route::get('tipo-ocupacion-dependiente/habilitar/{id}', [TipoOcupacionDependienteController::class, 'habilitar'])->name('tipo-ocupacion-dependiente.habilitar');
 
     // Dashboard de resultados
     Route::get('/resultados/dashboard', [AdminResultadosController::class, 'dashboard'])

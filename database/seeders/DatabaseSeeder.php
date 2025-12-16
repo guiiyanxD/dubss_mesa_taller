@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             RangoIngresoEconomicoSeeder::class,
             TipoTenenciaViviendaSeeder::class,
             TipoDependenciaEconomicaSeeder::class,
+            TipoOcupacionDependienteSeeder::class,
 
             // 3. Perfiles especializados
             EstudianteSeeder::class,

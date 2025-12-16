@@ -73,6 +73,18 @@ const atajos = {
     // ----------------------------------------------------
     ADMIN: [
         {
+            title: 'Gestion de Tipos de Tenencia de Vivienda.',
+            description: 'Gestiona tipos de tenencia de vivienda.',
+            icon: '📊',
+            route: 'admin.tipos-tenencia.index',
+        },
+        {
+            title: 'Gestion de Tipos de Ocupacion de Dependencia Económica',
+            description: 'Gestiona tipos de ocupacion de dependencia económica.',
+            icon: '📊',
+            route: 'admin.tipo-ocupacion-dependiente.index',
+        },
+        {
             title: 'Gestion de Tipos de Dependencia Económica',
             description: 'Gestiona tipos de dependencia económica.',
             icon: '📊',

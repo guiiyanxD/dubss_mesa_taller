@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('tipo_ocupacion_dependiente', function (Blueprint $table) {
             $table->id();
             $table->string('nombre', 100);
-            $table->string('archivo_adjuntar', 255)->nullable();
+            $table->string('archivo_adjuntar', 255);
             $table->decimal('puntaje', 5, 2)->nullable();
+            $table->boolean('activo')->default(true);
             $table->timestamps();
 
 

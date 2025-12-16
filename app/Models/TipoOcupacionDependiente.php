@@ -22,10 +22,10 @@ class TipoOcupacionDependiente extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'id_dependencia_eco',
         'nombre',
         'archivo_adjuntar',
-        'puntaje'
+        'puntaje',
+        'activo',
     ];
 
     /**
@@ -34,18 +34,17 @@ class TipoOcupacionDependiente extends Model
      * @var array<string, string>
      */
     protected $casts = [
-        'puntaje' => 'decimal:2'
+        'puntaje' => 'decimal:2',
+        'activo' => 'boolean',
+    ];
+
+    protected $attributes = [
+        'activo' => true
     ];
 
     // =====================================================
     // RELACIONES
     // =====================================================
 
-    /**
-     * Relación: dependenciaEconomica
-     */
-    public function dependenciaEconomica()
-    {
-        return $this->belongsTo(DependenciaEconomica::class, 'id_dependencia_eco');
-    }
+
 }
