@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             // 2. Usuarios base
             UserSeeder::class,
             RangoIngresoEconomicoSeeder::class,
+            TipoTenenciaViviendaSeeder::class,
 
             // 3. Perfiles especializados
             EstudianteSeeder::class,
