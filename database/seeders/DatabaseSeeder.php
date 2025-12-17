@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             TipoTenenciaViviendaSeeder::class,
             TipoDependenciaEconomicaSeeder::class,
             TipoOcupacionDependienteSeeder::class,
+            LugarProcedenciaSeeder::class,
 
             // 3. Perfiles especializados
             EstudianteSeeder::class,
@@ -41,7 +42,7 @@ class DatabaseSeeder extends Seeder
             BecaSeeder::class,
 
             // 6. Formularios socioeconómicos
-            FormularioSocioEconomicoSeeder::class,
+            //FormularioSocioEconomicoSeeder::class,
 
             // 7. Postulaciones
             PostulacionSeeder::class,
@@ -56,30 +57,6 @@ class DatabaseSeeder extends Seeder
         $this->command->info('═══════════════════════════════════════════════════════');
         $this->command->info('');
 
-        // Resumen estadístico
-        $this->command->info('📊 RESUMEN DE DATOS GENERADOS:');
-        $this->command->info('');
-
-        $stats = [
-            ['Modelo', 'Cantidad'],
-            ['─────────────────────────────', '────────'],
-            ['Usuarios', \App\Models\User::count()],
-            ['Estudiantes', \App\Models\Estudiante::count()],
-            ['Personal Administrativo', \App\Models\PersonalAdministrativo::count()],
-            ['Convocatorias', \App\Models\Convocatoria::count()],
-            ['Becas', \App\Models\Beca::count()],
-            ['Requisitos', \App\Models\Requisito::count()],
-            ['Formularios', \App\Models\FormularioSocioEconomico::count()],
-            ['Grupos Familiares', \App\Models\GrupoFamiliar::count()],
-            ['Miembros Familiares', \App\Models\MiembroFamiliar::count()],
-            ['Postulaciones', \App\Models\Postulacion::count()],
-            ['Trámites', \App\Models\Tramite::count()],
-            ['Historial Trámites', \App\Models\TramiteHistorial::count()],
-            ['Documentos', \App\Models\Documento::count()],
-            ['Notificaciones', \App\Models\Notificacion::count()],
-        ];
-
-        $this->command->table($stats[0], array_slice($stats, 1));
 
         $this->command->info('');
         $this->command->info('🔑 CREDENCIALES DE ACCESO:');

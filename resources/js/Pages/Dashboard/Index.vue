@@ -73,6 +73,12 @@ const atajos = {
     // ----------------------------------------------------
     ADMIN: [
         {
+            title: 'Gestion de Lugares de Procedencia.',
+            description: 'Gestiona lugares de procedencia.',
+            icon: '📊',
+            route: 'admin.lugar-procedencia.index',
+        },
+        {
             title: 'Gestion de Tipos de Tenencia de Vivienda.',
             description: 'Gestiona tipos de tenencia de vivienda.',
             icon: '📊',
@@ -80,7 +86,8 @@ const atajos = {
         },
         {
             title: 'Gestion de Tipos de Ocupacion de Dependencia Económica',
-            description: 'Gestiona tipos de ocupacion de dependencia económica.',
+            description:
+                'Gestiona tipos de ocupacion de dependencia económica.',
             icon: '📊',
             route: 'admin.tipo-ocupacion-dependiente.index',
         },

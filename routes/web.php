@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\TipoTenenciaViviendaController;
 use App\Http\Controllers\Admin\RangoIngresoEconomicoController;
 use App\Http\Controllers\Admin\TipoDependenciaEconomicaController;
 use App\Http\Controllers\Admin\TipoOcupacionDependienteController;
+use App\Http\Controllers\Admin\LugarProcedenciaController;
 
 use Inertia\Inertia;
 
@@ -152,6 +153,10 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     //TIPO OCUPACION DEPENDIENTE
     Route::resource('tipo-ocupacion-dependiente', TipoOcupacionDependienteController::class)->names('tipo-ocupacion-dependiente');
     Route::get('tipo-ocupacion-dependiente/habilitar/{id}', [TipoOcupacionDependienteController::class, 'habilitar'])->name('tipo-ocupacion-dependiente.habilitar');
+
+    //LUGAR PROOCEDENCIA
+    Route::resource('lugar-procedencia', LugarProcedenciaController::class)->names('lugar-procedencia');
+    Route::get('lugar-procedencia/habilitar/{id}', [LugarProcedenciaController::class, 'habilitar'])->name('lugar-procedencia.habilitar');
 
     // Dashboard de resultados
     Route::get('/resultados/dashboard', [AdminResultadosController::class, 'dashboard'])
