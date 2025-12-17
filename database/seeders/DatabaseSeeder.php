@@ -45,7 +45,7 @@ class DatabaseSeeder extends Seeder
             //FormularioSocioEconomicoSeeder::class,
 
             // 7. Postulaciones
-            PostulacionSeeder::class,
+            //PostulacionSeeder::class,
 
             // 8. Trámites (con documentos y notificaciones)
             TramiteSeeder::class,

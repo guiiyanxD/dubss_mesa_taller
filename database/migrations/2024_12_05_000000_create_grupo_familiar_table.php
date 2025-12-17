@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('lugar_procedencia', function (Blueprint $table) {
+        Schema::create('grupo_familiar', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre_lugar')->unique();
-            $table->decimal('puntaje');
-            $table->boolean('activo')->default(true);
+            $table->integer('cantidad_hijos')->default(0);
+            $table->integer('cantidad_familiares');
+            $table->boolean('tiene_hijos')->default(false);
+            $table->decimal('puntaje', 5, 2)->nullable();
+            $table->decimal('puntaje_total', 5, 2)->nullable();
             $table->timestamps();
 
         });
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('lugar_procedencias');
+        Schema::dropIfExists('grupo_familiar');
     }
 };

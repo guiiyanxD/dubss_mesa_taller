@@ -46,7 +46,7 @@ class PostulacionSeeder extends Seeder
                     'id_formulario' => $formulario->id,
                     'id_beca' => $beca->id,
                     'fecha_postulacion' => Carbon::now()->subDays(rand(1, 15)),
-                    'estado_postulado' => $estado,
+                    'estado_postulacion' => $estado,
                     'motivo_rechazo' => $estado === 'RECHAZADO' ? 'Documentación incompleta' : null,
                     'posicion_ranking' => $estado === 'APROBADO' ? rand(1, 100) : null,
                     'puntaje_final' => $puntaje,

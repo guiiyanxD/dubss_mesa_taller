@@ -13,23 +13,14 @@ return new class extends Migration
     {
         Schema::create('residencia', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_formulario');
             $table->string('provincia', 100)->nullable();
             $table->string('zona', 100)->nullable();
             $table->string('calle', 255)->nullable();
-            $table->integer('cant_banhos')->nullable();
-            $table->integer('cant_salas')->nullable();
-            $table->integer('cant_dormitorios')->nullable();
-            $table->integer('cantt_comedor')->nullable();
             $table->string('barrio', 100)->nullable();
-            $table->integer('cant_patios')->nullable();
             $table->decimal('puntaje_total', 5, 2)->nullable();
             $table->timestamps();
 
-            $table->foreign('id_formulario')
-                  ->references('id')
-                  ->on('formulario_socio_economico')
-                  ->onDelete('cascade');
+
         });
     }
 

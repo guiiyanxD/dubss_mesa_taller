@@ -11,18 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('respuesta_formulario', function (Blueprint $table) {
+        Schema::create('infraestructura', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_formulario_socio_economico');
+            $table->integer('cantidad_dormitorios');
+            $table->integer('cantidad_banhos');
+            $table->integer('cantidad_salas');
+            $table->integer('cantidad_comedor');
+            $table->integer('cantidad_patios');
             $table->timestamps();
-
-
-
-
-            $table->foreign('id_formulario_socio_economico')
-                  ->references('id')
-                  ->on('formulario_socio_economico')
-                  ->onDelete('cascade');
         });
     }
 
@@ -31,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('respuesta_formulario');
+        Schema::dropIfExists('infraestructura');
     }
 };
