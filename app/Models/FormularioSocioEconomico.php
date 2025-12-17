@@ -22,6 +22,7 @@ class FormularioSocioEconomico extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'id_respuesta_formulario',
         'id_estudiante',
         'validado_por',
         'fecha_llenado',

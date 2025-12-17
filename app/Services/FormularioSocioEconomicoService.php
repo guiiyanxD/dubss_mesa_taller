@@ -7,6 +7,15 @@ use App\Models\FormularioSocioEconomico;
 use App\Models\Postulacion;
 use App\Models\Tramite;
 use App\Models\User;
+use App\Models\DependenciaEconomica;
+use App\Models\Infraestructura;
+use App\Models\Residencia;
+use App\Models\RespuestaFormulario;
+use Carbon\Carbon;
+use App\Models\TenenciaVivienda;
+use App\Models\GrupoFamiliar;
+use App\Models\MiembroFamiliar;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
@@ -18,10 +27,11 @@ class FormularioSocioEconomicoService
      */
     public function registrarFormularioCompleto(array $datos): array
     {
+        return dd($datos);
         return DB::transaction(function () use ($datos) {
 
 
-            $estudiante = Estudiante::whereHas('usuario', function ($query) use ($datos) {
+            /*$estudiante = Estudiante::whereHas('usuario', function ($query) use ($datos) {
                 $query->where('ci', $datos['ci_estudiante']);
             })->first();
 
@@ -29,74 +39,92 @@ class FormularioSocioEconomicoService
                 throw ValidationException::withMessages([
                     'ci_estudiante' => "No se encontró un estudiante registrado con el CI: {$datos['ci_estudiante']}"
                 ]);
-            }
+            }*/
 
-            // 2. Guardar Formulario Base
-            $formulario = FormularioSocioEconomico::create([
-                'id_estudiante' => $estudiante->id_usuario, // Usamos el ID real encontrado
-                'fecha_llenado' => $datos['fecha_llenado'],
-                'telefono_referencia' => $datos['telefono_referencia'],
-                'lugar_procedencia' => $datos['lugar_procedencia'],
-                'comentario_personal' => $datos['comentario_personal'] ?? null,
-                'observaciones' => $datos['observaciones'] ?? null,
-                // Booleanos
-                'discapacidad' => $datos['discapacidad'] ?? false,
-                'comentario_discapacidad' => $datos['comentario_discapacidad'] ?? null,
-                'otro_beneficio' => $datos['otro_beneficio'] ?? false,
-                'comentario_otro_beneficio' => $datos['comentario_otro_beneficio'] ?? null,
-                'completado' => true,
-                'validado_por' => false
+            $dependencia_economica = DependenciaEconomica::create([
+                'id_tipo_ocupacion_dependencia' => $datos['economica']['tipos_ocupacion_dependiente'],
+                'id_dependencia_economica' => $datos['economica']['tipo_dependencia'] ?? null,
+                'id_rango_ingreso_economico' => $datos['economica']['rango_ingreso'] ?? null,
+                'ocupacion' => $datos['economica']['ocupacion'] ?? null,
+                'puntaje' => 0.00,
+                'puntaje_total' => 0.00,
             ]);
 
-            // 3. Guardar Grupo Familiar
-            $grupoFamiliar = $formulario->grupoFamiliar()->create([
+            $infraestructura = Infraestructura::create([
+                'cantidad_dormitorios' => $datos['residencia']['cant_dormitorios'] ?? 0,
+                'cantidad_banhos' => $datos['residencia']['cant_banhos'] ?? 0,
+                'cantidad_salas' => $datos['residencia']['cant_salas'] ?? 0,
+                'cantidad_comedor' => $datos['residencia']['cant_comedor'] ?? 0,
+                'cantidad_patios' => $datos['residencia']['cant_patios'] ?? 0,
+                'puntaje_total' => 0.00,
+            ]);
+
+            $residenciaData = Residencia::create([
+                'provincia' => $datos['residencia']['provincia'] ?? null,
+                'zona' => $datos['residencia']['zona'] ?? null,
+                'calle' => $datos['residencia']['calle'] ?? null,
+                'barrio' => $datos['residencia']['barrio'] ?? null,
+                'puntaje_total' => 0.00,
+            ]);
+
+            $tenenciaVivienda = TenenciaVivienda::create([
+                'id_tipo_tenencia' => $datos['tenencia']['tipo_tenencia_vivienda'],
+                'puntaje' => 0.00,
+                'puntaje_total' => 0.00,
+            ]);
+
+            $grupoFamiliar = GrupoFamiliar::create([
                 'tiene_hijos' => $datos['grupo_familiar']['tiene_hijos'] ?? false,
                 'cantidad_hijos' => $datos['grupo_familiar']['cantidad_hijos'] ?? 0,
                 'cantidad_familiares' => count($datos['grupo_familiar']['miembros']),
             ]);
 
-            // 3.1 Miembros Familiares
-            if (!empty($datos['grupo_familiar']['miembros'])) {
-                $grupoFamiliar->miembros()->createMany($datos['grupo_familiar']['miembros']);
-            }
-
-            // 4. Guardar Residencia
-            $formulario->residencia()->create($datos['residencia']);
-
-            // 5. Guardar Tenencia Vivienda
-            $formulario->tenenciaVivienda()->create([
-                'tipo_tenencia' => $datos['tenencia']['tipo_tenencia'],
-                'detalle_tenencia' => $datos['tenencia']['detalle_tenencia'] ?? null,
-            ]);
-            // Nota: Si usas la tabla 'tipo_tenencia_vivienda' separada, aquí deberías insertarla,
-            // pero con los datos que tenemos, guardar en 'tenencia_vivienda' suele bastar.
-
-            // 6. Guardar Dependencia Económica
-            $dependencia = $formulario->dependenciaEconomica()->create([
-                'tipo_dependencia' => $datos['economica']['tipo_dependencia'],
-                'nota_ocupacion_dependiente' => $datos['economica']['nota_ocupacion'] ?? null,
-            ]);
-
-            // 6.1 Guardar Tipo Ocupación (Relacionada a Dependencia)
-            if (!empty($datos['economica']['ocupacion_nombre'])) {
-                $dependencia->tipoOcupacion()->create([
-                    'nombre' => $datos['economica']['ocupacion_nombre'],
+            for(int $i = 0; $i < count($datos['grupo_familiar']['miembros']); $i++) {
+                MiembroFamiliar::create([
+                    'id_grupo_familiar' => $grupoFamiliar->id,
+                    'nombre_completo' => $datos['grupo_familiar']['miembros'][$i]['nombre_completo'],
+                    'parentesco' => $datos['grupo_familiar']['miembros'][$i]['parentesco'],
+                    'edad' => $datos['grupo_familiar']['miembros'][$i]['edad'],
+                    'ocupacion' => $datos['grupo_familiar']['miembros'][$i]['ocupacion'] ?? null,
+                    'observacion' => $datos['grupo_familiar']['miembros'][$i]['observacion'] ?? null,
                 ]);
+
             }
 
-            // 6.2 Guardar Ingreso Económico (Relacionado a Dependencia)
-            if (!empty($datos['economica']['rango_ingreso'])) {
-                $dependencia->ingresoEconomico()->create([
-                    'rango_monto' => $datos['economica']['rango_ingreso'],
-                ]);
-            }
+            $respuestasFormulario = RespuestaFormulario::create([
+                'id_lugar_procedencia' => $datos['lugar_procedencia'] ?? null,
+                'id_residencia' => $residenciaData->id,
+                'id_infraestructura' => $infraestructura->id,
+                'id_dependencia_economica' => $dependencia_economica->id,
+                'id_tenencia_vivienda' => $tenenciaVivienda->id,
+                'id_grupo_familiar' => $grupoFamiliar->id,
+                'tiene_otro_beneficio' => $datos['otro_beneficio'] ?? false,
+                'comentario_otro_beneficio' => $datos['comentario_otro_beneficio'] ?? null,
+                'puntaje_otro_beneficio' => 0.00,
+                'es_discapacitado' => $datos['discapacidad'] ?? false,
+                'comentario_discapacitado' => $datos['comentario_discapacidad'] ?? null,
+                'puntaje_discapacitado' => 0.00,
+                'comentario_personal' => $datos['comentario_personal'] ?? null,
+            ]);
+
+            // 2. Guardar Formulario Base
+            $formulario = FormularioSocioEconomico::create([
+                'id_estudiante' => auth()->user()->id,
+                'fecha_llenado' => Carbon::now(),
+                'telefono_referencia' => $datos['telefono_referencia'],
+                'edad' => auth()->user()->fecha_nacimiento ? Carbon::parse(auth()->user()->fecha_nacimiento)->age : null,
+                'completado' => true,
+                'validado_por' => false,
+                'id_respuesta_formulario' => $respuestasFormulario->id,
+            ]);
+
 
             // ---------------------------------------------------------
             // 7. CREAR POSTULACIÓN AUTOMÁTICA
             // ---------------------------------------------------------
 
             // Verificamos si ya existe una postulación para esta convocatoria para no duplicar
-            $existePostulacion = Postulacion::where('id_estudiante', $estudiante->id_usuario)
+            $existePostulacion = Postulacion::where('id_estudiante', auth()->user()->id)
                 ->where('id_convocatoria', $datos['id_convocatoria'])
                 ->exists();
 
@@ -107,7 +135,7 @@ class FormularioSocioEconomicoService
             }
 
             $postulacion = Postulacion::create([
-                'id_estudiante' => $estudiante->id_usuario,
+                'id_estudiante' => auth()->user()->id,
                 'id_convocatoria' => $datos['id_convocatoria'],
                 'id_formulario' => $formulario->id,
                 'id_beca' => $datos['id_beca'],

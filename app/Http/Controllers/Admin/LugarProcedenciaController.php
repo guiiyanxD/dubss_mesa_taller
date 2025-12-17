@@ -30,6 +30,18 @@ class LugarProcedenciaController extends Controller
         return Inertia::render('Admin/LugarProcedencia/Create');
     }
 
+    public function getLugaresActivosParaFormulario()
+    {
+        $lugares = LugarProcedencia::where('activo', true)
+            ->orderBy('nombre_lugar')
+            ->get();
+
+        return response()->json([
+            'success' => true,
+            'lugares_procedencia' => $lugares
+        ]);
+    }
+
     /**
      * Store a newly created resource in storage.
      */

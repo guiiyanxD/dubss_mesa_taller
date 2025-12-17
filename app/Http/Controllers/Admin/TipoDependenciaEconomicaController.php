@@ -17,6 +17,15 @@ class TipoDependenciaEconomicaController extends Controller
         ]);
     }
 
+    public function getTiposActivosParaFormulario()
+    {
+        $tiposActivos = TipoDependenciaEconomica::where('activo', true)->get();
+        return response()->json([
+            'success' => true,
+            'tipo_dependencia_economica' => $tiposActivos
+        ]);
+    }
+
     public function create()
     {
         return Inertia::render('Admin/TipoDependenciaEconomica/Create');

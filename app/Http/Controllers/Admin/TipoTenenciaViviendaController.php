@@ -44,6 +44,18 @@ class TipoTenenciaViviendaController extends Controller
             ->with('success', 'Tipo de tenencia de vivienda creado exitosamente.');
     }
 
+    public function getTiposActivosParaFormulario()
+    {
+        $tipos = TipoTenenciaVivienda::where('activo', true)
+            ->orderBy('nombre')
+            ->get();
+
+        return response()->json([
+            'success' => true,
+            'tipos_tenencia_vivienda' => $tipos
+        ]);
+    }
+
     public function destroy(TipoTenenciaVivienda $tipoTenenciaVivienda)
     {
         $tipoTenenciaVivienda->delete();

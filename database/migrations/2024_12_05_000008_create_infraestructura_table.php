@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('cantidad_salas');
             $table->integer('cantidad_comedor');
             $table->integer('cantidad_patios');
+            $table->decimal('puntaje_total', 5, 2)->nullable();
             $table->timestamps();
         });
     }

@@ -24,6 +24,18 @@ class RangoIngresoEconomicoController extends Controller
         return Inertia::render('Admin/RangoIngresoEconomico/Create');
     }
 
+    public function getRangosActivosParaFormulario()
+    {
+        $rangos = RangoIngresoEconomico::where('activo', true)
+            ->orderBy('rango_nombre')
+            ->get();
+
+        return response()->json([
+            'success' => true,
+            'rangos_ingreso_economico' => $rangos
+        ]);
+    }
+
     public function store(Request $request)
     {
         $request->validate([

@@ -38,6 +38,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
 Route::get('convocatorias/activas', [ConvocatoriaController::class, 'getConvocatoriasActivas'])->name('convocatorias.activas');
 Route::get('/convocatorias/{id}/becas', [ConvocatoriaController::class, 'getBecas'])->name('admin.convocatorias.becas');
 Route::get('/formularios/crear', [FormularioSocioEconomicoController::class, 'create'])->name('formularios.create');
+Route::get('tipos-dependencia/activas', [TipoDependenciaEconomicaController::class, 'getTiposActivosParaFormulario'])->name('tipos-dependencia.activas');
+Route::get('tipos-ocupacion-dependiente/activas', [TipoOcupacionDependienteController::class, 'getTiposActivosParaFormulario'])->name('tipos-ocupacion-dependiente.activas');
+Route::get('rangos-ingreso/activas', [RangoIngresoEconomicoController::class, 'getRangosActivosParaFormulario'])->name('rangos-ingreso.activas');
+Route::get('lugar-procedencia/activas', [LugarProcedenciaController::class, 'getLugaresActivosParaFormulario'])->name('lugar-procedencia.activas');
+Route::get('tipos-tenencia-vivienda/activas', [TipoTenenciaViviendaController::class, 'getTiposActivosParaFormulario'])->name('tipos-tenencia-vivienda.activas');
 
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
 

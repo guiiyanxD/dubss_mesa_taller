@@ -22,6 +22,18 @@ class TipoOcupacionDependienteController extends Controller
         ]);
     }
 
+    public function getTiposActivosParaFormulario()
+    {
+        $tipos = TipoOcupacionDependiente::where('activo', true)
+            ->orderBy('nombre')
+            ->get();
+
+        return response()->json([
+            'success' => true,
+            'tipos_ocupacion_dependiente' => $tipos
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */
