@@ -1,0 +1,111 @@
+Date : 2025-12-17 07:48:02
+Directory : c:\laragon\www\dubss_mesa_taller\app
+Total : 73 files,  6246 codes, 1587 comments, 1331 blanks, all 9164 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| PHP      |         73 |      6,246 |      1,587 |      1,331 |      9,164 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                   | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                      |         73 |      6,246 |      1,587 |      1,331 |      9,164 |
+| Http                                                                                                   |         38 |      3,434 |        601 |        624 |      4,659 |
+| Http\Controllers                                                                                       |         35 |      3,333 |        562 |        600 |      4,495 |
+| Http\Controllers (Files)                                                                               |          5 |        665 |         37 |         81 |        783 |
+| Http\Controllers\Admin                                                                                 |         12 |      1,192 |        169 |        261 |      1,622 |
+| Http\Controllers\Api                                                                                   |          7 |        980 |        208 |        142 |      1,330 |
+| Http\Controllers\Auth                                                                                  |          9 |        272 |         60 |         67 |        399 |
+| Http\Controllers\Operador                                                                              |          2 |        224 |         88 |         49 |        361 |
+| Http\Middleware                                                                                        |          1 |         28 |         13 |          6 |         47 |
+| Http\Requests                                                                                          |          2 |         73 |         26 |         18 |        117 |
+| Http\Requests (Files)                                                                                  |          1 |         22 |          5 |          4 |         31 |
+| Http\Requests\Auth                                                                                     |          1 |         51 |         21 |         14 |         86 |
+| Models                                                                                                 |         26 |      1,049 |        703 |        341 |      2,093 |
+| Providers                                                                                              |          1 |         14 |          7 |          5 |         26 |
+| Services                                                                                               |          8 |      1,749 |        276 |        361 |      2,386 |
++--------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                               | language | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Admin\AdminReportesController.php                | PHP      |         98 |         23 |         30 |        151 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Admin\AdminResultadosController.php              | PHP      |        123 |         41 |         30 |        194 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Admin\BecaController.php                         | PHP      |         88 |          0 |         15 |        103 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Admin\ConvocatoriaController.php                 | PHP      |        134 |         25 |         35 |        194 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Admin\LugarProcedenciaController.php             | PHP      |         86 |         18 |         19 |        123 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Admin\RangoIngresoEconomicoController.php        | PHP      |         61 |          0 |         14 |         75 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Admin\RequisitoController.php                    | PHP      |         91 |          1 |         15 |        107 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Admin\RespuestaFormularioController.php          | PHP      |        279 |         34 |         46 |        359 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Admin\TipoDependenciaController.php              | PHP      |         32 |          3 |         10 |         45 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Admin\TipoDependenciaEconomicaController.php     | PHP      |         51 |          0 |         13 |         64 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Admin\TipoOcupacionDependienteController.php     | PHP      |         87 |         18 |         19 |        124 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Admin\TipoTenenciaViviendaController.php         | PHP      |         62 |          6 |         15 |         83 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Api\AuthController.php                           | PHP      |         52 |         55 |         12 |        119 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Api\BecaController.php                           | PHP      |        114 |         22 |         16 |        152 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Api\ConvocatoriaController.php                   | PHP      |         94 |         18 |         15 |        127 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Api\FormularioSocioeconomicoController.php       | PHP      |        233 |         40 |         31 |        304 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Api\NotificacionController.php                   | PHP      |        115 |         29 |         25 |        169 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Api\PostulacionController.php                    | PHP      |        199 |         28 |         29 |        256 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Api\TramiteController.php                        | PHP      |        173 |         16 |         14 |        203 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Auth\AuthenticatedSessionController.php          | PHP      |         33 |          9 |         11 |         53 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Auth\ConfirmablePasswordController.php           | PHP      |         29 |          6 |          7 |         42 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Auth\EmailVerificationNotificationController.php | PHP      |         16 |          3 |          6 |         25 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Auth\EmailVerificationPromptController.php       | PHP      |         16 |          3 |          4 |         23 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Auth\NewPasswordController.php                   | PHP      |         47 |         14 |          9 |         70 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Auth\PasswordController.php                      | PHP      |         21 |          3 |          6 |         30 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Auth\PasswordResetLinkController.php             | PHP      |         33 |         11 |          8 |         52 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Auth\RegisteredUserController.php                | PHP      |         58 |          8 |         10 |         76 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Auth\VerifyEmailController.php                   | PHP      |         19 |          3 |          6 |         28 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Controller.php                                   | PHP      |          5 |          1 |          3 |          9 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\DashboardController.php                          | PHP      |        538 |         25 |         39 |        602 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\FormularioSocioEconomicoController.php           | PHP      |         62 |          2 |         20 |         84 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Operador\DocumentoOperadorController.php         | PHP      |        111 |         35 |         22 |        168 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Operador\TramiteOperadorController.php           | PHP      |        113 |         53 |         27 |        193 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\ProfileController.php                            | PHP      |         41 |          9 |         14 |         64 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\TestRoleController.php                           | PHP      |         19 |          0 |          5 |         24 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Middleware\HandleInertiaRequests.php                         | PHP      |         28 |         13 |          6 |         47 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Requests\Auth\LoginRequest.php                               | PHP      |         51 |         21 |         14 |         86 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Requests\ProfileUpdateRequest.php                            | PHP      |         22 |          5 |          4 |         31 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\Beca.php                                                   | PHP      |         33 |         27 |         11 |         71 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\BecaRequisito.php                                          | PHP      |         20 |         24 |          9 |         53 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\Convocatoria.php                                           | PHP      |         27 |         24 |         10 |         61 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\DependenciaEconomica.php                                   | PHP      |         21 |         18 |         10 |         49 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\Documento.php                                              | PHP      |         38 |         27 |         11 |         76 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\EstadoTramite.php                                          | PHP      |         26 |         10 |          9 |         45 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\Estudiante.php                                             | PHP      |         70 |         70 |         24 |        164 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\FormularioSocioEconomico.php                               | PHP      |         55 |         36 |         14 |        105 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\GrupoFamiliar.php                                          | PHP      |        143 |         54 |         37 |        234 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\LugarProcedencia.php                                       | PHP      |         22 |          0 |          8 |         30 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\MiembroFamiliar.php                                        | PHP      |         24 |         21 |          9 |         54 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\Notificacion.php                                           | PHP      |         33 |         24 |         10 |         67 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\PersonalAdministrativo.php                                 | PHP      |         48 |         55 |         19 |        122 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\Postulacion.php                                            | PHP      |         50 |         36 |         14 |        100 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\RangoIngresoEconomico.php                                  | PHP      |         18 |         18 |          9 |         45 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\Requisito.php                                              | PHP      |         19 |         21 |         10 |         50 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\Residencia.php                                             | PHP      |         34 |         21 |          9 |         64 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\RespuestaFormulario.php                                    | PHP      |        101 |         33 |         28 |        162 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\TenenciaVivienda.php                                       | PHP      |         28 |         24 |         10 |         62 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\TipoDependenciaEconomica.php                               | PHP      |         18 |          0 |          7 |         25 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\TipoOcupacionDependiente.php                               | PHP      |         22 |         18 |         11 |         51 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\TipoTenenciaVivienda.php                                   | PHP      |         19 |         18 |         10 |         47 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\Tramite.php                                                | PHP      |         41 |         33 |         13 |         87 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\TramiteHistorial.php                                       | PHP      |         30 |         10 |          9 |         49 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\User copy.php                                              | PHP      |         26 |         17 |          7 |         50 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\User.php                                                   | PHP      |         83 |         64 |         23 |        170 |
+| c:\laragon\www\dubss_mesa_taller\app\Providers\AppServiceProvider.php                                  | PHP      |         14 |          7 |          5 |         26 |
+| c:\laragon\www\dubss_mesa_taller\app\Services\BecaService.php                                          | PHP      |        210 |         35 |         55 |        300 |
+| c:\laragon\www\dubss_mesa_taller\app\Services\ConvocatoriaService.php                                  | PHP      |        267 |         39 |         61 |        367 |
+| c:\laragon\www\dubss_mesa_taller\app\Services\DocumentoOperadorService..php                            | PHP      |        222 |         35 |         45 |        302 |
+| c:\laragon\www\dubss_mesa_taller\app\Services\ExportService.php                                        | PHP      |        271 |         45 |         66 |        382 |
+| c:\laragon\www\dubss_mesa_taller\app\Services\FormularioSocioEconomicoService.php                      | PHP      |        123 |         21 |         24 |        168 |
+| c:\laragon\www\dubss_mesa_taller\app\Services\RequisitoService.php                                     | PHP      |        137 |         28 |         35 |        200 |
+| c:\laragon\www\dubss_mesa_taller\app\Services\ResultadosService.php                                    | PHP      |        220 |         37 |         38 |        295 |
+| c:\laragon\www\dubss_mesa_taller\app\Services\TramiteOperadorService.php                               | PHP      |        299 |         36 |         37 |        372 |
+| Total                                                                                                  |          |      6,246 |      1,587 |      1,331 |      9,164 |
++--------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+

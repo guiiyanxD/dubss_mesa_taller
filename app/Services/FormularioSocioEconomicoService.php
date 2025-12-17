@@ -27,7 +27,7 @@ class FormularioSocioEconomicoService
      */
     public function registrarFormularioCompleto(array $datos): array
     {
-        return dd($datos);
+        //return dd($datos);
         return DB::transaction(function () use ($datos) {
 
 
@@ -79,7 +79,7 @@ class FormularioSocioEconomicoService
                 'cantidad_familiares' => count($datos['grupo_familiar']['miembros']),
             ]);
 
-            for(int $i = 0; $i < count($datos['grupo_familiar']['miembros']); $i++) {
+            for( $i = 0; $i < count($datos['grupo_familiar']['miembros']); $i++) {
                 MiembroFamiliar::create([
                     'id_grupo_familiar' => $grupoFamiliar->id,
                     'nombre_completo' => $datos['grupo_familiar']['miembros'][$i]['nombre_completo'],

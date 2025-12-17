@@ -38,9 +38,9 @@ class ResultadosService
 
         // Totales
         $totalPostulaciones = (clone $query)->count();
-        $totalAprobadas = (clone $query)->where('estado_postulado', 'APROBADO')->count();
-        $totalDenegadas = (clone $query)->where('estado_postulado', 'DENEGADO')->count();
-        $totalPendientes = (clone $query)->whereNull('estado_postulado')->count();
+        $totalAprobadas = (clone $query)->where('estado_postulacion', 'APROBADO')->count();
+        $totalDenegadas = (clone $query)->where('estado_postulacion', 'DENEGADO')->count();
+        $totalPendientes = (clone $query)->whereNull('estado_postulacion')->count();
 
         // Promedios
         $promedioPuntaje = (clone $query)->whereNotNull('puntaje_final')->avg('puntaje_final') ?? 0;
@@ -76,7 +76,7 @@ class ResultadosService
 
 
         $presupuestoEjecutado = Postulacion::where('id_convocatoria', $convocatoriaId)
-            ->where('estado_postulado', 'APROBADO')
+            ->where('estado_postulacion', 'APROBADO')
             ->join('beca', 'postulacion.id_beca', '=', 'beca.id');
 //            ->sum('beca.monto');
 
@@ -163,14 +163,14 @@ class ResultadosService
     {
         $becas = Beca::where('id_convocatoria', $convocatoriaId)
             ->with(['postulaciones' => function($query) {
-                $query->select('id', 'id_beca', 'estado_postulado', 'puntaje_final');
+                $query->select('id', 'id_beca', 'estado_postulacion', 'puntaje_final');
             }])
             ->get()
             ->map(function ($beca) {
                 $postulaciones = $beca->postulaciones;
-                $aprobadas = $postulaciones->where('estado_postulado', 'APROBADO')->count();
-                $denegadas = $postulaciones->where('estado_postulado', 'DENEGADO')->count();
-                $pendientes = $postulaciones->whereNull('estado_postulado')->count();
+                $aprobadas = $postulaciones->where('estado_postulacion', 'APROBADO')->count();
+                $denegadas = $postulaciones->where('estado_postulacion', 'DENEGADO')->count();
+                $pendientes = $postulaciones->whereNull('estado_postulacion')->count();
                 $promedioPuntaje = $postulaciones->whereNotNull('puntaje_final')->avg('puntaje_final') ?? 0;
 
                 $tasaOcupacion = $beca->cupos_disponibles > 0
@@ -204,7 +204,7 @@ class ResultadosService
     {
 
         $porCarrera = Postulacion::where('id_convocatoria', $convocatoriaId)
-            ->where('estado_postulado', 'APROBADO')
+            ->where('estado_postulacion', 'APROBADO')
             ->join('estudiante', 'postulacion.id_estudiante', '=', 'estudiante.id')
             ->selectRaw('estudiante.carrera, COUNT(*) as total')
             ->groupBy('estudiante.carrera')
@@ -217,7 +217,7 @@ class ResultadosService
         $porGenero = [];
         try {
             $porGenero = Postulacion::where('id_convocatoria', $convocatoriaId)
-                ->where('estado_postulado', 'APROBADO')
+                ->where('estado_postulacion', 'APROBADO')
                 ->join('estudiante', 'postulacion.id_estudiante', '=', 'estudiante.id')
                 ->selectRaw('estudiante.genero, COUNT(*) as total')
                 ->groupBy('estudiante.genero')
@@ -257,10 +257,10 @@ class ResultadosService
                     'nombre' => $convocatoria->nombre,
                 ],
                 'total_postulaciones' => (clone $query)->count(),
-                'total_aprobadas' => (clone $query)->where('estado_postulado', 'APROBADO')->count(),
+                'total_aprobadas' => (clone $query)->where('estado_postulacion', 'APROBADO')->count(),
                 'promedio_puntaje' => round((clone $query)->whereNotNull('puntaje_final')->avg('puntaje_final') ?? 0, 2),
                 'presupuesto_ejecutado' => Postulacion::where('id_convocatoria', $convocatoriaId)
-                    ->where('estado_postulado', 'APROBADO')
+                    ->where('estado_postulacion', 'APROBADO')
                     ->join('beca', 'postulacion.id_beca', '=', 'beca.id')
                     ->sum('beca.monto'),
             ];

@@ -42,7 +42,7 @@ class DatabaseSeeder extends Seeder
             BecaSeeder::class,
 
             // 6. Formularios socioeconómicos
-            //FormularioSocioEconomicoSeeder::class,
+            FormularioSocioEconomicoSeeder::class,
 
             // 7. Postulaciones
             //PostulacionSeeder::class,

@@ -1,0 +1,81 @@
+Date : 2025-12-17 07:48:47
+Directory : c:\laragon\www\dubss_mesa_taller\resources\js\Pages
+Total : 39 files,  7631 codes, 218 comments, 588 blanks, all 8437 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Vue      |         39 |      7,631 |        218 |        588 |      8,437 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++-------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                  | files      | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                     |         39 |      7,631 |        218 |        588 |      8,437 |
+| . (Files)                                                                                             |          3 |        599 |         19 |         37 |        655 |
+| Admin                                                                                                 |         19 |      3,828 |        113 |        236 |      4,177 |
+| Admin\Becas                                                                                           |          2 |        373 |          9 |         28 |        410 |
+| Admin\Convocatorias                                                                                   |          3 |        499 |         10 |         37 |        546 |
+| Admin\LugarProcedencia                                                                                |          2 |        482 |         16 |         24 |        522 |
+| Admin\RangoIngresoEconomico                                                                           |          2 |        257 |         10 |         16 |        283 |
+| Admin\Requisitos                                                                                      |          2 |        331 |         12 |         27 |        370 |
+| Admin\Resultados                                                                                      |          2 |        773 |         18 |         49 |        840 |
+| Admin\TipoDependenciaEconomica                                                                        |          2 |        368 |         12 |         18 |        398 |
+| Admin\TipoOcupacionDependiente                                                                        |          2 |        451 |         13 |         19 |        483 |
+| Admin\TipoTenenciaVivienda                                                                            |          2 |        294 |         13 |         18 |        325 |
+| Auth                                                                                                  |          6 |        536 |         19 |         81 |        636 |
+| Dashboard                                                                                             |          1 |        219 |         12 |         18 |        249 |
+| FormularioSocioeconomico                                                                              |          1 |        921 |         20 |         54 |        995 |
+| Operador                                                                                              |          5 |      1,184 |         35 |        104 |      1,323 |
+| Profile                                                                                               |          4 |        344 |          0 |         58 |        402 |
+| Profile (Files)                                                                                       |          1 |         50 |          0 |          7 |         57 |
+| Profile\Partials                                                                                      |          3 |        294 |          0 |         51 |        345 |
++-------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                              | language | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\Becas\Create.vue                            | Vue      |        197 |          9 |         17 |        223 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\Becas\Index.vue                             | Vue      |        176 |          0 |         11 |        187 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\Convocatorias\Create.vue                    | Vue      |        163 |          6 |         13 |        182 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\Convocatorias\Index.vue                     | Vue      |        190 |          1 |         14 |        205 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\Convocatorias\Show.vue                      | Vue      |        146 |          3 |         10 |        159 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\LugarProcedencia\Create.vue                 | Vue      |        204 |          8 |         11 |        223 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\LugarProcedencia\Index.vue                  | Vue      |        278 |          8 |         13 |        299 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\RangoIngresoEconomico\Create.vue            | Vue      |        107 |          6 |          9 |        122 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\RangoIngresoEconomico\Index.vue             | Vue      |        150 |          4 |          7 |        161 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\Requisitos\Create.vue                       | Vue      |        143 |          6 |         12 |        161 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\Requisitos\Index.vue                        | Vue      |        188 |          6 |         15 |        209 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\Resultados\Dashboard.vue                    | Vue      |        365 |         12 |         27 |        404 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\Resultados\RankingBeca.vue                  | Vue      |        408 |          6 |         22 |        436 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\TipoDependenciaEconomica\Create.vue         | Vue      |        178 |          7 |         10 |        195 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\TipoDependenciaEconomica\Index.vue          | Vue      |        190 |          5 |          8 |        203 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\TipoOcupacionDependiente\Create.vue         | Vue      |        215 |          8 |         11 |        234 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\TipoOcupacionDependiente\Index.vue          | Vue      |        236 |          5 |          8 |        249 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\TipoTenenciaVivienda\Create.vue             | Vue      |        117 |          5 |          9 |        131 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\TipoTenenciaVivienda\Index.vue              | Vue      |        177 |          8 |          9 |        194 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Auth\ConfirmPassword.vue                          | Vue      |         49 |          0 |          7 |         56 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Auth\ForgotPassword.vue                           | Vue      |         58 |          0 |         11 |         69 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Auth\Login.vue                                    | Vue      |         86 |          0 |         15 |        101 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Auth\Register.vue                                 | Vue      |        204 |         19 |         23 |        246 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Auth\ResetPassword.vue                            | Vue      |         87 |          0 |         15 |        102 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Auth\VerifyEmail.vue                              | Vue      |         52 |          0 |         10 |         62 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Dashboard.vue                                     | Vue      |         21 |          0 |          4 |         25 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Dashboard\Index.vue                               | Vue      |        219 |         12 |         18 |        249 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\FormularioSocioeconomico\Create.vue               | Vue      |        921 |         20 |         54 |        995 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Operador\BuscarTramite.vue                        | Vue      |        152 |          4 |         11 |        167 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Operador\Dashboard.vue                            | Vue      |        286 |          8 |         27 |        321 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Operador\DigitalizarTramite.vue                   | Vue      |        371 |         10 |         32 |        413 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Operador\TramitesPendientes.vue                   | Vue      |        146 |          0 |         13 |        159 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Operador\ValidarTramite.vue                       | Vue      |        229 |         13 |         21 |        263 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Profile\Edit.vue                                  | Vue      |         50 |          0 |          7 |         57 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Profile\Partials\DeleteUserForm.vue               | Vue      |         91 |          0 |         18 |        109 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Profile\Partials\UpdatePasswordForm.vue           | Vue      |        106 |          0 |         17 |        123 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Profile\Partials\UpdateProfileInformationForm.vue | Vue      |         97 |          0 |         16 |        113 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\TestRoles.vue                                     | Vue      |        102 |          4 |          8 |        114 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Welcome.vue                                       | Vue      |        476 |         15 |         25 |        516 |
+| Total                                                                                                 |          |      7,631 |        218 |        588 |      8,437 |
++-------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+

@@ -1,0 +1,173 @@
+Date : 2025-12-17 07:48:47
+Directory : c:\laragon\www\dubss_mesa_taller\resources\js\Pages
+Total : 112 files,  1385 codes, -1369 comments, -743 blanks, all -727 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Vue      |         39 |      7,631 |        218 |        588 |      8,437 |
+| PHP      |         73 |     -6,246 |     -1,587 |     -1,331 |     -9,164 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                   | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                      |        112 |      1,385 |     -1,369 |       -743 |       -727 |
+| . (Files)                                                                                              |          3 |        599 |         19 |         37 |        655 |
+| ..                                                                                                     |         73 |     -6,246 |     -1,587 |     -1,331 |     -9,164 |
+| ..\..                                                                                                  |         73 |     -6,246 |     -1,587 |     -1,331 |     -9,164 |
+| ..\..\..                                                                                               |         73 |     -6,246 |     -1,587 |     -1,331 |     -9,164 |
+| ..\..\..\app                                                                                           |         73 |     -6,246 |     -1,587 |     -1,331 |     -9,164 |
+| ..\..\..\app\Http                                                                                      |         38 |     -3,434 |       -601 |       -624 |     -4,659 |
+| ..\..\..\app\Http\Controllers                                                                          |         35 |     -3,333 |       -562 |       -600 |     -4,495 |
+| ..\..\..\app\Http\Controllers (Files)                                                                  |          5 |       -665 |        -37 |        -81 |       -783 |
+| ..\..\..\app\Http\Controllers\Admin                                                                    |         12 |     -1,192 |       -169 |       -261 |     -1,622 |
+| ..\..\..\app\Http\Controllers\Api                                                                      |          7 |       -980 |       -208 |       -142 |     -1,330 |
+| ..\..\..\app\Http\Controllers\Auth                                                                     |          9 |       -272 |        -60 |        -67 |       -399 |
+| ..\..\..\app\Http\Controllers\Operador                                                                 |          2 |       -224 |        -88 |        -49 |       -361 |
+| ..\..\..\app\Http\Middleware                                                                           |          1 |        -28 |        -13 |         -6 |        -47 |
+| ..\..\..\app\Http\Requests                                                                             |          2 |        -73 |        -26 |        -18 |       -117 |
+| ..\..\..\app\Http\Requests (Files)                                                                     |          1 |        -22 |         -5 |         -4 |        -31 |
+| ..\..\..\app\Http\Requests\Auth                                                                        |          1 |        -51 |        -21 |        -14 |        -86 |
+| ..\..\..\app\Models                                                                                    |         26 |     -1,049 |       -703 |       -341 |     -2,093 |
+| ..\..\..\app\Providers                                                                                 |          1 |        -14 |         -7 |         -5 |        -26 |
+| ..\..\..\app\Services                                                                                  |          8 |     -1,749 |       -276 |       -361 |     -2,386 |
+| Admin                                                                                                  |         19 |      3,828 |        113 |        236 |      4,177 |
+| Admin\Becas                                                                                            |          2 |        373 |          9 |         28 |        410 |
+| Admin\Convocatorias                                                                                    |          3 |        499 |         10 |         37 |        546 |
+| Admin\LugarProcedencia                                                                                 |          2 |        482 |         16 |         24 |        522 |
+| Admin\RangoIngresoEconomico                                                                            |          2 |        257 |         10 |         16 |        283 |
+| Admin\Requisitos                                                                                       |          2 |        331 |         12 |         27 |        370 |
+| Admin\Resultados                                                                                       |          2 |        773 |         18 |         49 |        840 |
+| Admin\TipoDependenciaEconomica                                                                         |          2 |        368 |         12 |         18 |        398 |
+| Admin\TipoOcupacionDependiente                                                                         |          2 |        451 |         13 |         19 |        483 |
+| Admin\TipoTenenciaVivienda                                                                             |          2 |        294 |         13 |         18 |        325 |
+| Auth                                                                                                   |          6 |        536 |         19 |         81 |        636 |
+| Dashboard                                                                                              |          1 |        219 |         12 |         18 |        249 |
+| FormularioSocioeconomico                                                                               |          1 |        921 |         20 |         54 |        995 |
+| Operador                                                                                               |          5 |      1,184 |         35 |        104 |      1,323 |
+| Profile                                                                                                |          4 |        344 |          0 |         58 |        402 |
+| Profile (Files)                                                                                        |          1 |         50 |          0 |          7 |         57 |
+| Profile\Partials                                                                                       |          3 |        294 |          0 |         51 |        345 |
++--------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                               | language | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Admin\AdminReportesController.php                | PHP      |        -98 |        -23 |        -30 |       -151 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Admin\AdminResultadosController.php              | PHP      |       -123 |        -41 |        -30 |       -194 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Admin\BecaController.php                         | PHP      |        -88 |          0 |        -15 |       -103 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Admin\ConvocatoriaController.php                 | PHP      |       -134 |        -25 |        -35 |       -194 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Admin\LugarProcedenciaController.php             | PHP      |        -86 |        -18 |        -19 |       -123 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Admin\RangoIngresoEconomicoController.php        | PHP      |        -61 |          0 |        -14 |        -75 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Admin\RequisitoController.php                    | PHP      |        -91 |         -1 |        -15 |       -107 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Admin\RespuestaFormularioController.php          | PHP      |       -279 |        -34 |        -46 |       -359 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Admin\TipoDependenciaController.php              | PHP      |        -32 |         -3 |        -10 |        -45 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Admin\TipoDependenciaEconomicaController.php     | PHP      |        -51 |          0 |        -13 |        -64 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Admin\TipoOcupacionDependienteController.php     | PHP      |        -87 |        -18 |        -19 |       -124 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Admin\TipoTenenciaViviendaController.php         | PHP      |        -62 |         -6 |        -15 |        -83 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Api\AuthController.php                           | PHP      |        -52 |        -55 |        -12 |       -119 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Api\BecaController.php                           | PHP      |       -114 |        -22 |        -16 |       -152 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Api\ConvocatoriaController.php                   | PHP      |        -94 |        -18 |        -15 |       -127 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Api\FormularioSocioeconomicoController.php       | PHP      |       -233 |        -40 |        -31 |       -304 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Api\NotificacionController.php                   | PHP      |       -115 |        -29 |        -25 |       -169 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Api\PostulacionController.php                    | PHP      |       -199 |        -28 |        -29 |       -256 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Api\TramiteController.php                        | PHP      |       -173 |        -16 |        -14 |       -203 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Auth\AuthenticatedSessionController.php          | PHP      |        -33 |         -9 |        -11 |        -53 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Auth\ConfirmablePasswordController.php           | PHP      |        -29 |         -6 |         -7 |        -42 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Auth\EmailVerificationNotificationController.php | PHP      |        -16 |         -3 |         -6 |        -25 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Auth\EmailVerificationPromptController.php       | PHP      |        -16 |         -3 |         -4 |        -23 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Auth\NewPasswordController.php                   | PHP      |        -47 |        -14 |         -9 |        -70 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Auth\PasswordController.php                      | PHP      |        -21 |         -3 |         -6 |        -30 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Auth\PasswordResetLinkController.php             | PHP      |        -33 |        -11 |         -8 |        -52 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Auth\RegisteredUserController.php                | PHP      |        -58 |         -8 |        -10 |        -76 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Auth\VerifyEmailController.php                   | PHP      |        -19 |         -3 |         -6 |        -28 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Controller.php                                   | PHP      |         -5 |         -1 |         -3 |         -9 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\DashboardController.php                          | PHP      |       -538 |        -25 |        -39 |       -602 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\FormularioSocioEconomicoController.php           | PHP      |        -62 |         -2 |        -20 |        -84 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Operador\DocumentoOperadorController.php         | PHP      |       -111 |        -35 |        -22 |       -168 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\Operador\TramiteOperadorController.php           | PHP      |       -113 |        -53 |        -27 |       -193 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\ProfileController.php                            | PHP      |        -41 |         -9 |        -14 |        -64 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Controllers\TestRoleController.php                           | PHP      |        -19 |          0 |         -5 |        -24 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Middleware\HandleInertiaRequests.php                         | PHP      |        -28 |        -13 |         -6 |        -47 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Requests\Auth\LoginRequest.php                               | PHP      |        -51 |        -21 |        -14 |        -86 |
+| c:\laragon\www\dubss_mesa_taller\app\Http\Requests\ProfileUpdateRequest.php                            | PHP      |        -22 |         -5 |         -4 |        -31 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\Beca.php                                                   | PHP      |        -33 |        -27 |        -11 |        -71 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\BecaRequisito.php                                          | PHP      |        -20 |        -24 |         -9 |        -53 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\Convocatoria.php                                           | PHP      |        -27 |        -24 |        -10 |        -61 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\DependenciaEconomica.php                                   | PHP      |        -21 |        -18 |        -10 |        -49 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\Documento.php                                              | PHP      |        -38 |        -27 |        -11 |        -76 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\EstadoTramite.php                                          | PHP      |        -26 |        -10 |         -9 |        -45 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\Estudiante.php                                             | PHP      |        -70 |        -70 |        -24 |       -164 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\FormularioSocioEconomico.php                               | PHP      |        -55 |        -36 |        -14 |       -105 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\GrupoFamiliar.php                                          | PHP      |       -143 |        -54 |        -37 |       -234 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\LugarProcedencia.php                                       | PHP      |        -22 |          0 |         -8 |        -30 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\MiembroFamiliar.php                                        | PHP      |        -24 |        -21 |         -9 |        -54 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\Notificacion.php                                           | PHP      |        -33 |        -24 |        -10 |        -67 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\PersonalAdministrativo.php                                 | PHP      |        -48 |        -55 |        -19 |       -122 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\Postulacion.php                                            | PHP      |        -50 |        -36 |        -14 |       -100 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\RangoIngresoEconomico.php                                  | PHP      |        -18 |        -18 |         -9 |        -45 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\Requisito.php                                              | PHP      |        -19 |        -21 |        -10 |        -50 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\Residencia.php                                             | PHP      |        -34 |        -21 |         -9 |        -64 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\RespuestaFormulario.php                                    | PHP      |       -101 |        -33 |        -28 |       -162 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\TenenciaVivienda.php                                       | PHP      |        -28 |        -24 |        -10 |        -62 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\TipoDependenciaEconomica.php                               | PHP      |        -18 |          0 |         -7 |        -25 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\TipoOcupacionDependiente.php                               | PHP      |        -22 |        -18 |        -11 |        -51 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\TipoTenenciaVivienda.php                                   | PHP      |        -19 |        -18 |        -10 |        -47 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\Tramite.php                                                | PHP      |        -41 |        -33 |        -13 |        -87 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\TramiteHistorial.php                                       | PHP      |        -30 |        -10 |         -9 |        -49 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\User copy.php                                              | PHP      |        -26 |        -17 |         -7 |        -50 |
+| c:\laragon\www\dubss_mesa_taller\app\Models\User.php                                                   | PHP      |        -83 |        -64 |        -23 |       -170 |
+| c:\laragon\www\dubss_mesa_taller\app\Providers\AppServiceProvider.php                                  | PHP      |        -14 |         -7 |         -5 |        -26 |
+| c:\laragon\www\dubss_mesa_taller\app\Services\BecaService.php                                          | PHP      |       -210 |        -35 |        -55 |       -300 |
+| c:\laragon\www\dubss_mesa_taller\app\Services\ConvocatoriaService.php                                  | PHP      |       -267 |        -39 |        -61 |       -367 |
+| c:\laragon\www\dubss_mesa_taller\app\Services\DocumentoOperadorService..php                            | PHP      |       -222 |        -35 |        -45 |       -302 |
+| c:\laragon\www\dubss_mesa_taller\app\Services\ExportService.php                                        | PHP      |       -271 |        -45 |        -66 |       -382 |
+| c:\laragon\www\dubss_mesa_taller\app\Services\FormularioSocioEconomicoService.php                      | PHP      |       -123 |        -21 |        -24 |       -168 |
+| c:\laragon\www\dubss_mesa_taller\app\Services\RequisitoService.php                                     | PHP      |       -137 |        -28 |        -35 |       -200 |
+| c:\laragon\www\dubss_mesa_taller\app\Services\ResultadosService.php                                    | PHP      |       -220 |        -37 |        -38 |       -295 |
+| c:\laragon\www\dubss_mesa_taller\app\Services\TramiteOperadorService.php                               | PHP      |       -299 |        -36 |        -37 |       -372 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\Becas\Create.vue                             | Vue      |        197 |          9 |         17 |        223 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\Becas\Index.vue                              | Vue      |        176 |          0 |         11 |        187 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\Convocatorias\Create.vue                     | Vue      |        163 |          6 |         13 |        182 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\Convocatorias\Index.vue                      | Vue      |        190 |          1 |         14 |        205 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\Convocatorias\Show.vue                       | Vue      |        146 |          3 |         10 |        159 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\LugarProcedencia\Create.vue                  | Vue      |        204 |          8 |         11 |        223 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\LugarProcedencia\Index.vue                   | Vue      |        278 |          8 |         13 |        299 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\RangoIngresoEconomico\Create.vue             | Vue      |        107 |          6 |          9 |        122 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\RangoIngresoEconomico\Index.vue              | Vue      |        150 |          4 |          7 |        161 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\Requisitos\Create.vue                        | Vue      |        143 |          6 |         12 |        161 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\Requisitos\Index.vue                         | Vue      |        188 |          6 |         15 |        209 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\Resultados\Dashboard.vue                     | Vue      |        365 |         12 |         27 |        404 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\Resultados\RankingBeca.vue                   | Vue      |        408 |          6 |         22 |        436 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\TipoDependenciaEconomica\Create.vue          | Vue      |        178 |          7 |         10 |        195 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\TipoDependenciaEconomica\Index.vue           | Vue      |        190 |          5 |          8 |        203 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\TipoOcupacionDependiente\Create.vue          | Vue      |        215 |          8 |         11 |        234 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\TipoOcupacionDependiente\Index.vue           | Vue      |        236 |          5 |          8 |        249 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\TipoTenenciaVivienda\Create.vue              | Vue      |        117 |          5 |          9 |        131 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Admin\TipoTenenciaVivienda\Index.vue               | Vue      |        177 |          8 |          9 |        194 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Auth\ConfirmPassword.vue                           | Vue      |         49 |          0 |          7 |         56 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Auth\ForgotPassword.vue                            | Vue      |         58 |          0 |         11 |         69 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Auth\Login.vue                                     | Vue      |         86 |          0 |         15 |        101 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Auth\Register.vue                                  | Vue      |        204 |         19 |         23 |        246 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Auth\ResetPassword.vue                             | Vue      |         87 |          0 |         15 |        102 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Auth\VerifyEmail.vue                               | Vue      |         52 |          0 |         10 |         62 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Dashboard.vue                                      | Vue      |         21 |          0 |          4 |         25 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Dashboard\Index.vue                                | Vue      |        219 |         12 |         18 |        249 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\FormularioSocioeconomico\Create.vue                | Vue      |        921 |         20 |         54 |        995 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Operador\BuscarTramite.vue                         | Vue      |        152 |          4 |         11 |        167 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Operador\Dashboard.vue                             | Vue      |        286 |          8 |         27 |        321 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Operador\DigitalizarTramite.vue                    | Vue      |        371 |         10 |         32 |        413 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Operador\TramitesPendientes.vue                    | Vue      |        146 |          0 |         13 |        159 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Operador\ValidarTramite.vue                        | Vue      |        229 |         13 |         21 |        263 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Profile\Edit.vue                                   | Vue      |         50 |          0 |          7 |         57 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Profile\Partials\DeleteUserForm.vue                | Vue      |         91 |          0 |         18 |        109 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Profile\Partials\UpdatePasswordForm.vue            | Vue      |        106 |          0 |         17 |        123 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Profile\Partials\UpdateProfileInformationForm.vue  | Vue      |         97 |          0 |         16 |        113 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\TestRoles.vue                                      | Vue      |        102 |          4 |          8 |        114 |
+| c:\laragon\www\dubss_mesa_taller\resources\js\Pages\Welcome.vue                                        | Vue      |        476 |         15 |         25 |        516 |
+| Total                                                                                                  |          |      1,385 |     -1,369 |       -743 |       -727 |
++--------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
